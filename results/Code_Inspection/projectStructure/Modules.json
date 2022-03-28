@@ -1,0 +1,130 @@
+{
+  "modules": [
+    {
+      "name": "gameoflife",
+      "contentEntries": [
+        {
+          "path": "file://$PROJECT_DIR$",
+          "sourceFolders": [
+            {
+              "path": "file://$PROJECT_DIR$/src/main/kotlin",
+              "type": "Source",
+              "packagePrefix": ""
+            },
+            {
+              "path": "file://$PROJECT_DIR$/src/main/resources",
+              "type": "Resource",
+              "packagePrefix": ""
+            }
+          ]
+        }
+      ],
+      "orderEntries": [
+        {
+          "name": "jbr-11",
+          "type": "SDK"
+        },
+        {
+          "name": "<Module source>",
+          "type": "Own sources"
+        },
+        {
+          "name": "Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.10",
+          "type": "Library"
+        },
+        {
+          "name": "Maven: org.jetbrains.kotlin:kotlin-stdlib:1.6.10",
+          "type": "Library"
+        },
+        {
+          "name": "Maven: org.jetbrains:annotations:13.0",
+          "type": "Library"
+        },
+        {
+          "name": "Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.10",
+          "type": "Library"
+        },
+        {
+          "name": "Maven: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.0",
+          "type": "Library"
+        },
+        {
+          "name": "Maven: org.jetbrains.kotlin:kotlin-stdlib-common:1.6.0",
+          "type": "Library"
+        },
+        {
+          "name": "Maven: com.github.mlomb:freetype-jni:1.1",
+          "type": "Library"
+        },
+        {
+          "name": "Maven: org.lwjgl:lwjgl:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Maven: org.lwjgl:lwjgl-assimp:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Maven: org.lwjgl:lwjgl-glfw:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Maven: org.lwjgl:lwjgl-nanovg:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Maven: org.lwjgl:lwjgl-nfd:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Maven: org.lwjgl:lwjgl-openal:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Maven: org.lwjgl:lwjgl-opengl:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Maven: org.lwjgl:lwjgl-stb:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Maven: org.lwjgl:lwjgl:natives-windows:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Maven: org.lwjgl:lwjgl-assimp:natives-windows:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Maven: org.lwjgl:lwjgl-glfw:natives-windows:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Maven: org.lwjgl:lwjgl-nanovg:natives-windows:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Maven: org.lwjgl:lwjgl-nfd:natives-windows:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Maven: org.lwjgl:lwjgl-openal:natives-windows:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Maven: org.lwjgl:lwjgl-opengl:natives-windows:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Maven: org.lwjgl:lwjgl-stb:natives-windows:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Maven: org.joml:joml:1.10.4",
+          "type": "Library"
+        }
+      ]
+    }
+  ]
+}

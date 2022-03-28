@@ -1,0 +1,148 @@
+{
+  "libraries": [
+    {
+      "name": "Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.10",
+      "roots": [
+        "jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.6.10/kotlin-stdlib-jdk8-1.6.10.jar!/"
+      ]
+    },
+    {
+      "name": "Maven: org.jetbrains.kotlin:kotlin-stdlib:1.6.10",
+      "roots": [
+        "jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib/1.6.10/kotlin-stdlib-1.6.10.jar!/"
+      ]
+    },
+    {
+      "name": "Maven: org.jetbrains:annotations:13.0",
+      "roots": [
+        "jar://$MAVEN_REPOSITORY$/org/jetbrains/annotations/13.0/annotations-13.0.jar!/"
+      ]
+    },
+    {
+      "name": "Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.10",
+      "roots": [
+        "jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.6.10/kotlin-stdlib-jdk7-1.6.10.jar!/"
+      ]
+    },
+    {
+      "name": "Maven: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.0",
+      "roots": [
+        "jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlinx/kotlinx-coroutines-core-jvm/1.6.0/kotlinx-coroutines-core-jvm-1.6.0.jar!/"
+      ]
+    },
+    {
+      "name": "Maven: org.jetbrains.kotlin:kotlin-stdlib-common:1.6.0",
+      "roots": [
+        "jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib-common/1.6.0/kotlin-stdlib-common-1.6.0.jar!/"
+      ]
+    },
+    {
+      "name": "Maven: com.github.mlomb:freetype-jni:1.1",
+      "roots": [
+        "jar://$PROJECT_DIR$/libs/freetype-jni.jar!/"
+      ]
+    },
+    {
+      "name": "Maven: org.lwjgl:lwjgl:3.3.1",
+      "roots": [
+        "jar://$MAVEN_REPOSITORY$/org/lwjgl/lwjgl/3.3.1/lwjgl-3.3.1.jar!/"
+      ]
+    },
+    {
+      "name": "Maven: org.lwjgl:lwjgl-assimp:3.3.1",
+      "roots": [
+        "jar://$MAVEN_REPOSITORY$/org/lwjgl/lwjgl-assimp/3.3.1/lwjgl-assimp-3.3.1.jar!/"
+      ]
+    },
+    {
+      "name": "Maven: org.lwjgl:lwjgl-glfw:3.3.1",
+      "roots": [
+        "jar://$MAVEN_REPOSITORY$/org/lwjgl/lwjgl-glfw/3.3.1/lwjgl-glfw-3.3.1.jar!/"
+      ]
+    },
+    {
+      "name": "Maven: org.lwjgl:lwjgl-nanovg:3.3.1",
+      "roots": [
+        "jar://$MAVEN_REPOSITORY$/org/lwjgl/lwjgl-nanovg/3.3.1/lwjgl-nanovg-3.3.1.jar!/"
+      ]
+    },
+    {
+      "name": "Maven: org.lwjgl:lwjgl-nfd:3.3.1",
+      "roots": [
+        "jar://$MAVEN_REPOSITORY$/org/lwjgl/lwjgl-nfd/3.3.1/lwjgl-nfd-3.3.1.jar!/"
+      ]
+    },
+    {
+      "name": "Maven: org.lwjgl:lwjgl-openal:3.3.1",
+      "roots": [
+        "jar://$MAVEN_REPOSITORY$/org/lwjgl/lwjgl-openal/3.3.1/lwjgl-openal-3.3.1.jar!/"
+      ]
+    },
+    {
+      "name": "Maven: org.lwjgl:lwjgl-opengl:3.3.1",
+      "roots": [
+        "jar://$MAVEN_REPOSITORY$/org/lwjgl/lwjgl-opengl/3.3.1/lwjgl-opengl-3.3.1.jar!/"
+      ]
+    },
+    {
+      "name": "Maven: org.lwjgl:lwjgl-stb:3.3.1",
+      "roots": [
+        "jar://$MAVEN_REPOSITORY$/org/lwjgl/lwjgl-stb/3.3.1/lwjgl-stb-3.3.1.jar!/"
+      ]
+    },
+    {
+      "name": "Maven: org.lwjgl:lwjgl:natives-windows:3.3.1",
+      "roots": [
+        "jar://$MAVEN_REPOSITORY$/org/lwjgl/lwjgl/3.3.1/lwjgl-3.3.1-natives-windows.jar!/"
+      ]
+    },
+    {
+      "name": "Maven: org.lwjgl:lwjgl-assimp:natives-windows:3.3.1",
+      "roots": [
+        "jar://$MAVEN_REPOSITORY$/org/lwjgl/lwjgl-assimp/3.3.1/lwjgl-assimp-3.3.1-natives-windows.jar!/"
+      ]
+    },
+    {
+      "name": "Maven: org.lwjgl:lwjgl-glfw:natives-windows:3.3.1",
+      "roots": [
+        "jar://$MAVEN_REPOSITORY$/org/lwjgl/lwjgl-glfw/3.3.1/lwjgl-glfw-3.3.1-natives-windows.jar!/"
+      ]
+    },
+    {
+      "name": "Maven: org.lwjgl:lwjgl-nanovg:natives-windows:3.3.1",
+      "roots": [
+        "jar://$MAVEN_REPOSITORY$/org/lwjgl/lwjgl-nanovg/3.3.1/lwjgl-nanovg-3.3.1-natives-windows.jar!/"
+      ]
+    },
+    {
+      "name": "Maven: org.lwjgl:lwjgl-nfd:natives-windows:3.3.1",
+      "roots": [
+        "jar://$MAVEN_REPOSITORY$/org/lwjgl/lwjgl-nfd/3.3.1/lwjgl-nfd-3.3.1-natives-windows.jar!/"
+      ]
+    },
+    {
+      "name": "Maven: org.lwjgl:lwjgl-openal:natives-windows:3.3.1",
+      "roots": [
+        "jar://$MAVEN_REPOSITORY$/org/lwjgl/lwjgl-openal/3.3.1/lwjgl-openal-3.3.1-natives-windows.jar!/"
+      ]
+    },
+    {
+      "name": "Maven: org.lwjgl:lwjgl-opengl:natives-windows:3.3.1",
+      "roots": [
+        "jar://$MAVEN_REPOSITORY$/org/lwjgl/lwjgl-opengl/3.3.1/lwjgl-opengl-3.3.1-natives-windows.jar!/"
+      ]
+    },
+    {
+      "name": "Maven: org.lwjgl:lwjgl-stb:natives-windows:3.3.1",
+      "roots": [
+        "jar://$MAVEN_REPOSITORY$/org/lwjgl/lwjgl-stb/3.3.1/lwjgl-stb-3.3.1-natives-windows.jar!/"
+      ]
+    },
+    {
+      "name": "Maven: org.joml:joml:1.10.4",
+      "roots": [
+        "jar://$MAVEN_REPOSITORY$/org/joml/joml/1.10.4/joml-1.10.4.jar!/"
+      ]
+    }
+  ]
+}

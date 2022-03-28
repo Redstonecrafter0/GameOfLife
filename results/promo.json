@@ -1,0 +1,528 @@
+{"version":"3","listProblem":[{
+  "tool": "Code Inspection",
+  "category": "Style issues",
+  "type": "Class member can have 'private' visibility",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Info",
+  "comment": "Function 'bind' could be private",
+  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Shader.kt",
+      "language": "kotlin",
+      "line": 76,
+      "offset": 8,
+      "length": 4,
+      "code": {
+        "startLine": 74,
+        "length": 4,
+        "offset": 15,
+        "surroundingCode": "    }\n\n    fun bind() {\n        glUseProgram(pointer)\n    }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "gameoflife",
+    "inspectionName": "MemberVisibilityCanBePrivate"
+  },
+  "hash": "3302915050054757416"
+},{
+  "tool": "Code Inspection",
+  "category": "Style issues",
+  "type": "Class member can have 'private' visibility",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Info",
+  "comment": "Property 'uniform' could be private",
+  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
+  "sources": [
+    {
+      "type": "field",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Shader.kt",
+      "language": "kotlin",
+      "line": 13,
+      "offset": 8,
+      "length": 7,
+      "code": {
+        "startLine": 11,
+        "length": 7,
+        "offset": 54,
+        "surroundingCode": "\n    override val pointer = glCreateProgram()\n    val uniform = mutableMapOf<String, Int>()\n\n    init {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "gameoflife",
+    "inspectionName": "MemberVisibilityCanBePrivate"
+  },
+  "hash": "-1423740666265108255"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Function \"render\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Renderer.kt",
+      "language": "kotlin",
+      "line": 17,
+      "offset": 8,
+      "length": 6,
+      "code": {
+        "startLine": 15,
+        "length": 6,
+        "offset": 38,
+        "surroundingCode": "    val ebo = glGenBuffers()\n\n    fun render(block: Builder.() -> Unit) {\n        val builder = Builder()\n        builder.block()"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "gameoflife",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "-7075302473532757939"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Property \"vao\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "field",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Renderer.kt",
+      "language": "kotlin",
+      "line": 14,
+      "offset": 8,
+      "length": 3,
+      "code": {
+        "startLine": 12,
+        "length": 3,
+        "offset": 38,
+        "surroundingCode": "\n    val vbo = glGenBuffers()\n    val vao = glGenBuffers()\n    val ebo = glGenBuffers()\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "gameoflife",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "3919026202448872706"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Property \"vbo\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "field",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Renderer.kt",
+      "language": "kotlin",
+      "line": 13,
+      "offset": 8,
+      "length": 3,
+      "code": {
+        "startLine": 11,
+        "length": 3,
+        "offset": 73,
+        "surroundingCode": "abstract class Renderer(val shader: ShaderProgram): Closeable {\n\n    val vbo = glGenBuffers()\n    val vao = glGenBuffers()\n    val ebo = glGenBuffers()"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "gameoflife",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "-6147990708496979545"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Function \"triangleColor\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Renderer.kt",
+      "language": "kotlin",
+      "line": 58,
+      "offset": 12,
+      "length": 13,
+      "code": {
+        "startLine": 56,
+        "length": 13,
+        "offset": 23,
+        "surroundingCode": "        }\n\n        fun triangleColor(p1: Vector3f, p2: Vector3f, p3: Vector3f, c: Vector4f) {\n            triangle(p1, p2, p3)\n            if (c !in color) color += c"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "gameoflife",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "1766691561330653711"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Property \"resultIndices\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Renderer.kt",
+      "language": "kotlin",
+      "line": 42,
+      "offset": 12,
+      "length": 13,
+      "code": {
+        "startLine": 40,
+        "length": 13,
+        "offset": 50,
+        "surroundingCode": "                    ).toFloatArray()\n\n        val resultIndices: IntArray\n            get() = (\n                    indices.map { listOf(it.x, it.y, it.z) }.flatten() +"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "gameoflife",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "-8318922435796679622"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Property \"resultVertices\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Renderer.kt",
+      "language": "kotlin",
+      "line": 35,
+      "offset": 12,
+      "length": 14,
+      "code": {
+        "startLine": 33,
+        "length": 14,
+        "offset": 63,
+        "surroundingCode": "        val textureIndices = mutableListOf<Int>()\n\n        val resultVertices: FloatArray\n            get() = (\n                    vertices.map { listOf(it.x, it.y, it.z) }.flatten() +"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "gameoflife",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "8551627556038860489"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Property \"ebo\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "field",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Renderer.kt",
+      "language": "kotlin",
+      "line": 15,
+      "offset": 8,
+      "length": 3,
+      "code": {
+        "startLine": 13,
+        "length": 3,
+        "offset": 66,
+        "surroundingCode": "    val vbo = glGenBuffers()\n    val vao = glGenBuffers()\n    val ebo = glGenBuffers()\n\n    fun render(block: Builder.() -> Unit) {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "gameoflife",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "117967810202509901"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Property \"shader\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Renderer.kt",
+      "language": "kotlin",
+      "line": 11,
+      "offset": 28,
+      "length": 6,
+      "code": {
+        "startLine": 9,
+        "length": 6,
+        "offset": 54,
+        "surroundingCode": "import java.io.Closeable\n\nabstract class Renderer(val shader: ShaderProgram): Closeable {\n\n    val vbo = glGenBuffers()"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "gameoflife",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "-7514127173878959369"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Function \"triangleTexture\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Renderer.kt",
+      "language": "kotlin",
+      "line": 64,
+      "offset": 12,
+      "length": 15,
+      "code": {
+        "startLine": 62,
+        "length": 15,
+        "offset": 23,
+        "surroundingCode": "        }\n\n        fun triangleTexture(p1: Vector3f, p2: Vector3f, p3: Vector3f, t: Vector2f) {\n            triangle(p1, p2, p3)\n            if (t !in texture) texture += t"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "gameoflife",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "832788593489538217"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Function \"render\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/SDFFontRenderer.kt",
+      "language": "kotlin",
+      "line": 31,
+      "offset": 8,
+      "length": 6,
+      "code": {
+        "startLine": 29,
+        "length": 6,
+        "offset": 15,
+        "surroundingCode": "    }\n\n    fun render(text: String, x: Int, y: Int, size: Int) {\n        texture.bind()\n    }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "gameoflife",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "-2953824564594694199"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Class \"SDFFontRenderer\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "class",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/SDFFontRenderer.kt",
+      "language": "kotlin",
+      "line": 12,
+      "offset": 6,
+      "length": 15,
+      "code": {
+        "startLine": 10,
+        "length": 15,
+        "offset": 31,
+        "surroundingCode": "import kotlin.math.sqrt\n\nclass SDFFontRenderer(val camera: Camera, val font: SDFFont) : Renderer(\n    ShaderProgram(\n        VertexShader("
+      }
+    }
+  ],
+  "attributes": {
+    "module": "gameoflife",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "-6399279386738634288"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Function \"generateFont\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/SDFFontRenderer.kt",
+      "language": "kotlin",
+      "line": 98,
+      "offset": 12,
+      "length": 12,
+      "code": {
+        "startLine": 96,
+        "length": 12,
+        "offset": 23,
+        "surroundingCode": "        }\n\n        fun generateFont(font: File, chars: List<Int>, size: Int, spacing: Int, output: File): ByteArray {\n            val face = freetype.newFace(font.readBytes(), 0)\n            val fBitmap = ByteArray(4096 * 4096) { 0 }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "gameoflife",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "561878331825127975"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Constructor is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/SDFFontRenderer.kt",
+      "language": "kotlin",
+      "line": 39,
+      "offset": 4,
+      "length": 11,
+      "code": {
+        "startLine": 37,
+        "length": 11,
+        "offset": 96,
+        "surroundingCode": "class SDFFont(val texture: ByteArray, val textureWidth: Int, val chars: Map<Int, Glyph>) {\n\n    constructor(data: ByteArray, textureWidth: Int) : this(data, textureWidth, chars)\n\n    val textureHeight by lazy { texture.size / textureWidth }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "gameoflife",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "-5549818204205151483"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Property \"FONT_SPACING\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "field",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/SDFFontRenderer.kt",
+      "language": "kotlin",
+      "line": 67,
+      "offset": 12,
+      "length": 12,
+      "code": {
+        "startLine": 65,
+        "length": 12,
+        "offset": 40,
+        "surroundingCode": "\n        val FONT_SIZE = 64\n        val FONT_SPACING = 32\n\n        private fun mapRange(value: Float, in_min: Float, in_max: Float, out_min: Float, out_max: Float): Float {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "gameoflife",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "-3162281580334437679"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Property \"FONT_SIZE\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "field",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/SDFFontRenderer.kt",
+      "language": "kotlin",
+      "line": 66,
+      "offset": 12,
+      "length": 9,
+      "code": {
+        "startLine": 64,
+        "length": 9,
+        "offset": 58,
+        "surroundingCode": "        val freetype = FreeType.newLibrary()\n\n        val FONT_SIZE = 64\n        val FONT_SPACING = 32\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "gameoflife",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "-8787520350621595729"
+}]}

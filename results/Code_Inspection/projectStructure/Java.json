@@ -1,0 +1,8 @@
+{
+  "modules": [
+    {
+      "name": "gameoflife",
+      "languageLevel": 5
+    }
+  ]
+}
