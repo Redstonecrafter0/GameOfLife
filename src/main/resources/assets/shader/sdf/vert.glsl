@@ -1,11 +1,13 @@
 layout (location=0) in vec4 aPos;
 layout (location=1) in vec4 aColor;
 layout (location=2) in vec2 aTexCoords;
+layout (location=3) in float aChannel;
 
 uniform mat4 uProjectionMatrix;
 
 out vec4 fColor;
 out vec2 fTexCoords;
+out float fChannel;
 
 vec3 rgb2hsv(vec3 c) {
     vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
@@ -20,5 +22,6 @@ vec3 rgb2hsv(vec3 c) {
 void main() {
     fColor = vec4(rgb2hsv(aColor.rgb), aColor.a);
     fTexCoords = aTexCoords;
+    fChannel = int(aChannel);
     gl_Position = uProjectionMatrix * aPos;
 }

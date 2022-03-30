@@ -1,5 +1,6 @@
 in vec4 fColor;
 in vec2 fTexCoords;
+in int fChannel;
 
 uniform sampler2D uTexture;
 
@@ -14,7 +15,21 @@ vec3 hsv2rgb(vec3 c) {
 void main() {
     float upperPointCutoff = 0.5;
     float midpointCutoff = 0.49;
-    float c = texture(uFontTexture, fTexCoords).r;
+    float c;
+    switch (fChannel) {
+        case 0:
+            c = texture(uFontTexture, fTexCoords).r;
+            break;
+        case 1:
+            c = texture(uFontTexture, fTexCoords).g;
+            break;
+        case 2:
+            c = texture(uFontTexture, fTexCoords).b;
+            break;
+        case 3:
+            c = texture(uFontTexture, fTexCoords).a;
+            break;
+    }
     if (c > upperPointCutoff){
         color = vec4(hsv2rgb(fColor.rgb), fColor.a);
     } else if (c > midpointCutoff) {

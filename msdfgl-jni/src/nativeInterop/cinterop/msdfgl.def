@@ -1,0 +1,6 @@
+headers = msdfgl.h
+headerFilter = msdfgl.h
+package = msdfgl
+
+compilerOpts.mingw = -Isrc/nativeInterop/cinterop/msdfgl/include -Isrc/nativeInterop/cinterop/freetype/include
+linkerOpts.mingw = -Lsrc/nativeInterop/cinterop/msdfgl/lib -Lsrc/nativeInterop/cinterop/freetype/win64

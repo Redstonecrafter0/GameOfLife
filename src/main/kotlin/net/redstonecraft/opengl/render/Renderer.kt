@@ -39,12 +39,12 @@ abstract class Renderer(val shader: ShaderProgram): Closeable {
                             texture.map { listOf(it.x, it.y) }.flatten()
                     ).toFloatArray()
 
-        val resultIndices: IntArray
-            get() = (
-                    indices.map { listOf(it.x, it.y, it.z) }.flatten() +
-                            colorIndices.map { listOf(it.x, it.y, it.z, it.w) }.flatten() +
-                            textureIndices.map { listOf(it.x, it.y) }.flatten()
-                    )
+//        val resultIndices: IntArray
+//            get() = (
+//                    indices.map { listOf(it.x, it.y, it.z) }.flatten() +
+//                            colorIndices.map { listOf(it.x, it.y, it.z, it.w) }.flatten() +
+//                            textureIndices.map { listOf(it.x, it.y) }.flatten()
+//                    )
 
         fun triangle(p1: Vector3f, p2: Vector3f, p3: Vector3f) {
             if (p1 !in vertices) vertices += p1.copy
