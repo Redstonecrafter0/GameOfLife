@@ -54,32 +54,4 @@
     "inspectionName": "HasPlatformType"
   },
   "hash": "796a5956c05cbf5324c338dc627af01644f8c7a67a7baf5053e63ad79cf03233"
-},{
-  "tool": "Code Inspection",
-  "category": "Java interop issues",
-  "type": "Function or property has platform type",
-  "severity": "Moderate",
-  "comment": "Declaration has type inferred from a platform call, which can lead to unchecked nullability issues. Specify type explicitly as nullable or non-nullable.",
-  "detailsInfo": "Reports functions and properties that have a platform type.\n\nTo prevent unexpected errors, the type should be declared explicitly.\n\n**Example:**\n\n\n      fun foo() = java.lang.String.valueOf(1)\n\nThe quick fix allows you to specify the return type:\n\n\n      fun foo(): String = java.lang.String.valueOf(1)\n",
-  "sources": [
-    {
-      "type": "file",
-      "path": "src/main/kotlin/net/redstonecraft/opengl/render/SDFFontRenderer.kt",
-      "language": "kotlin",
-      "line": 64,
-      "offset": 13,
-      "length": 8,
-      "code": {
-        "startLine": 62,
-        "length": 8,
-        "offset": 36,
-        "surroundingCode": "    companion object {\n\n        val freetype = FreeType.newLibrary()\n\n        val FONT_SIZE = 64"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "gameoflife",
-    "inspectionName": "HasPlatformType"
-  },
-  "hash": "c6d72f5d6517d0e19c8ed9062e65e12c7e51483fbb808cfe99aa8dea0b673dbf"
 }]}

@@ -3,6 +3,8 @@
     "Kotlin",
     "Plain text",
     "XML",
-    ".gitignore (GitIgnore)"
+    ".gitignore (GitIgnore)",
+    "Kotlin/Native Def",
+    "Properties"
   ]
 }

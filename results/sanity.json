@@ -7,53 +7,21 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "[NEW_INFERENCE_NO_INFORMATION_FOR_PARAMETER] Not enough information to infer type variable R",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Renderer.kt",
-      "language": "kotlin",
-      "line": 44,
-      "offset": 28,
-      "length": 3,
-      "code": {
-        "startLine": 42,
-        "length": 3,
-        "offset": 86,
-        "surroundingCode": "        val resultIndices: IntArray\n            get() = (\n                    indices.map { listOf(it.x, it.y, it.z) }.flatten() +\n                            colorIndices.map { listOf(it.x, it.y, it.z, it.w) }.flatten() +\n                            textureIndices.map { listOf(it.x, it.y) }.flatten()"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "gameoflife",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "3279688917068118966"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "kotlin",
-    "Sanity"
-  ],
-  "severity": "Critical",
   "comment": "[UNRESOLVED_REFERENCE] Unresolved reference: x",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
     {
       "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Renderer.kt",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/SDFFontRenderer.kt",
       "language": "kotlin",
-      "line": 44,
-      "offset": 44,
+      "line": 115,
+      "offset": 55,
       "length": 1,
       "code": {
-        "startLine": 42,
+        "startLine": 113,
         "length": 1,
-        "offset": 102,
-        "surroundingCode": "        val resultIndices: IntArray\n            get() = (\n                    indices.map { listOf(it.x, it.y, it.z) }.flatten() +\n                            colorIndices.map { listOf(it.x, it.y, it.z, it.w) }.flatten() +\n                            textureIndices.map { listOf(it.x, it.y) }.flatten()"
+        "offset": 135,
+        "surroundingCode": "                val g2d = cImg.createGraphics()\n                g2d.font = font\n                charsMap[char.code] = Glyph(char.code, x, y, height, width, bearingX, bearingY, g2d.fontMetrics.charWidth(char))\n            }\n            val fBuffer = ByteArray(4096 * 4096 * 4) { 0 }"
       }
     }
   ],
@@ -61,7 +29,7 @@
     "module": "gameoflife",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "-1456377441091840382"
+  "hash": "-4155411981549254588"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -76,16 +44,16 @@
   "sources": [
     {
       "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Renderer.kt",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/SDFFontRenderer.kt",
       "language": "kotlin",
-      "line": 44,
-      "offset": 50,
+      "line": 115,
+      "offset": 58,
       "length": 1,
       "code": {
-        "startLine": 42,
+        "startLine": 113,
         "length": 1,
-        "offset": 108,
-        "surroundingCode": "        val resultIndices: IntArray\n            get() = (\n                    indices.map { listOf(it.x, it.y, it.z) }.flatten() +\n                            colorIndices.map { listOf(it.x, it.y, it.z, it.w) }.flatten() +\n                            textureIndices.map { listOf(it.x, it.y) }.flatten()"
+        "offset": 138,
+        "surroundingCode": "                val g2d = cImg.createGraphics()\n                g2d.font = font\n                charsMap[char.code] = Glyph(char.code, x, y, height, width, bearingX, bearingY, g2d.fontMetrics.charWidth(char))\n            }\n            val fBuffer = ByteArray(4096 * 4096 * 4) { 0 }"
       }
     }
   ],
@@ -93,7 +61,7 @@
     "module": "gameoflife",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "516742305849569284"
+  "hash": "-4967979896833107427"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -103,53 +71,53 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "[UNRESOLVED_REFERENCE] Unresolved reference: z",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Renderer.kt",
-      "language": "kotlin",
-      "line": 44,
-      "offset": 56,
-      "length": 1,
-      "code": {
-        "startLine": 42,
-        "length": 1,
-        "offset": 114,
-        "surroundingCode": "        val resultIndices: IntArray\n            get() = (\n                    indices.map { listOf(it.x, it.y, it.z) }.flatten() +\n                            colorIndices.map { listOf(it.x, it.y, it.z, it.w) }.flatten() +\n                            textureIndices.map { listOf(it.x, it.y) }.flatten()"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "gameoflife",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "7783237164754418379"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "kotlin",
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "[INSTANCE_ACCESS_BEFORE_SUPER_CALL] Cannot access 'chars' before superclass constructor has been called",
+  "comment": "[UNRESOLVED_REFERENCE] Unresolved reference: height",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
     {
       "type": "method",
       "path": "src/main/kotlin/net/redstonecraft/opengl/render/SDFFontRenderer.kt",
       "language": "kotlin",
-      "line": 39,
-      "offset": 79,
+      "line": 115,
+      "offset": 61,
+      "length": 6,
+      "code": {
+        "startLine": 113,
+        "length": 6,
+        "offset": 141,
+        "surroundingCode": "                val g2d = cImg.createGraphics()\n                g2d.font = font\n                charsMap[char.code] = Glyph(char.code, x, y, height, width, bearingX, bearingY, g2d.fontMetrics.charWidth(char))\n            }\n            val fBuffer = ByteArray(4096 * 4096 * 4) { 0 }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "gameoflife",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "-8747636718539070407"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin",
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "[UNRESOLVED_REFERENCE] Unresolved reference: width",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/SDFFontRenderer.kt",
+      "language": "kotlin",
+      "line": 115,
+      "offset": 69,
       "length": 5,
       "code": {
-        "startLine": 37,
+        "startLine": 113,
         "length": 5,
-        "offset": 171,
-        "surroundingCode": "class SDFFont(val texture: ByteArray, val textureWidth: Int, val chars: Map<Int, Glyph>) {\n\n    constructor(data: ByteArray, textureWidth: Int) : this(data, textureWidth, chars)\n\n    val textureHeight by lazy { texture.size / textureWidth }"
+        "offset": 149,
+        "surroundingCode": "                val g2d = cImg.createGraphics()\n                g2d.font = font\n                charsMap[char.code] = Glyph(char.code, x, y, height, width, bearingX, bearingY, g2d.fontMetrics.charWidth(char))\n            }\n            val fBuffer = ByteArray(4096 * 4096 * 4) { 0 }"
       }
     }
   ],
@@ -157,101 +125,5 @@
     "module": "gameoflife",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "-7184545307708192684"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "kotlin",
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "[NO_RETURN_IN_FUNCTION_WITH_BLOCK_BODY] A 'return' expression required in a function with a block body ('{...}')",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/opengl/render/SDFFontRenderer.kt",
-      "language": "kotlin",
-      "line": 133,
-      "offset": 8,
-      "length": 1,
-      "code": {
-        "startLine": 131,
-        "length": 1,
-        "offset": 40,
-        "surroundingCode": "                }\n            }\n        }\n    }\n}"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "gameoflife",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "6371016544490065353"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "kotlin",
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "[CREATING_AN_INSTANCE_OF_ABSTRACT_CLASS] Cannot create an instance of an abstract class",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/gameoflife/Main.kt",
-      "language": "kotlin",
-      "line": 8,
-      "offset": 19,
-      "length": 8,
-      "code": {
-        "startLine": 6,
-        "length": 8,
-        "offset": 33,
-        "surroundingCode": "\nfun main() {\n    val renderer = Renderer(OrthographicCamera)\n    object : Window(480, 360, \"Test\") {\n        override fun render(deltaTime: Long) {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "gameoflife",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "516972566515590513"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "kotlin",
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "[TYPE_MISMATCH] Type mismatch: inferred type is OrthographicCamera but ShaderProgram was expected",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/gameoflife/Main.kt",
-      "language": "kotlin",
-      "line": 8,
-      "offset": 28,
-      "length": 18,
-      "code": {
-        "startLine": 6,
-        "length": 18,
-        "offset": 42,
-        "surroundingCode": "\nfun main() {\n    val renderer = Renderer(OrthographicCamera)\n    object : Window(480, 360, \"Test\") {\n        override fun render(deltaTime: Long) {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "gameoflife",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "7981791490366409587"
+  "hash": "-4437154613067576682"
 }]}

@@ -1,13 +1,13 @@
 {
-  "total": 3,
+  "total": 2,
   "tools inspection": {
-    "Code Inspection": 3
+    "Code Inspection": 2
   },
   "attributes": {
     "vcs": {
       "sarifIdea": {
         "repositoryUri": "https://github.com/Redstonecrafter0/GameOfLife",
-        "revisionId": "c2e9f1ec17a5843b957d319ad54185dfe0f16982",
+        "revisionId": "feecff230e7544d4f1a0c2f17c423be55c6a6f63",
         "branch": "master"
       }
     },
