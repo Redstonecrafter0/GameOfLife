@@ -1,249 +1,156 @@
 {"version":"3","listProblem":[{
   "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
+  "category": "Style issues",
+  "type": "Class member can have 'private' visibility",
   "tags": [
     "kotlin"
   ],
-  "severity": "High",
-  "comment": "Function \"uploadUniformMat3f\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "severity": "Info",
+  "comment": "Function 'update' could be private",
+  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
   "sources": [
     {
       "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Shader.kt",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Texture.kt",
       "language": "kotlin",
-      "line": 63,
+      "line": 20,
       "offset": 8,
-      "length": 18,
+      "length": 6,
       "code": {
-        "startLine": 61,
-        "length": 18,
-        "offset": 73,
-        "surroundingCode": "        glUniformMatrix2fv(uniform[name]!!, false, buffer)\n    }\n    fun uploadUniformMat3f(name: String, mat: Matrix3f) {\n        bind()\n        val buffer = BufferUtils.createFloatBuffer(9)"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "gameoflife",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "6919176417255311329"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "tags": [
-    "kotlin"
-  ],
-  "severity": "High",
-  "comment": "Function \"uploadUniformMat2f\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Shader.kt",
-      "language": "kotlin",
-      "line": 57,
-      "offset": 8,
-      "length": 18,
-      "code": {
-        "startLine": 55,
-        "length": 18,
+        "startLine": 18,
+        "length": 6,
         "offset": 15,
-        "surroundingCode": "    }\n\n    fun uploadUniformMat2f(name: String, mat: Matrix2f) {\n        bind()\n        val buffer = BufferUtils.createFloatBuffer(4)"
+        "surroundingCode": "    }\n\n    fun update(data: ByteBuffer) {\n        glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data)\n    }"
       }
     }
   ],
   "attributes": {
     "module": "gameoflife",
-    "inspectionName": "UnusedSymbol"
+    "inspectionName": "MemberVisibilityCanBePrivate"
   },
-  "hash": "-4485216261377393883"
+  "hash": "-667217126084604709"
 },{
   "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
+  "category": "Style issues",
+  "type": "Class member can have 'private' visibility",
   "tags": [
     "kotlin"
   ],
-  "severity": "High",
-  "comment": "Function \"uploadUniformVec3f\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "severity": "Info",
+  "comment": "Property 'width' could be private",
+  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
   "sources": [
     {
       "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Shader.kt",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Texture.kt",
       "language": "kotlin",
-      "line": 48,
-      "offset": 8,
-      "length": 18,
-      "code": {
-        "startLine": 46,
-        "length": 18,
-        "offset": 80,
-        "surroundingCode": "        glUniform2fv(uniform[name]!!, floatArrayOf(vec.x, vec.y))\n    }\n    fun uploadUniformVec3f(name: String, vec: Vector3f) {\n        bind()\n        glUniform3fv(uniform[name]!!, floatArrayOf(vec.x, vec.y, vec.z))"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "gameoflife",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "-1322929896337436628"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "tags": [
-    "kotlin"
-  ],
-  "severity": "High",
-  "comment": "Function \"uploadUniformVec4f\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Shader.kt",
-      "language": "kotlin",
-      "line": 52,
-      "offset": 8,
-      "length": 18,
-      "code": {
-        "startLine": 50,
-        "length": 18,
-        "offset": 87,
-        "surroundingCode": "        glUniform3fv(uniform[name]!!, floatArrayOf(vec.x, vec.y, vec.z))\n    }\n    fun uploadUniformVec4f(name: String, vec: Vector4f) {\n        bind()\n        glUniform4fv(uniform[name]!!, floatArrayOf(vec.x, vec.y, vec.z, vec.w))"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "gameoflife",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "111162632813094501"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "tags": [
-    "kotlin"
-  ],
-  "severity": "High",
-  "comment": "Function \"uploadUniformVec2f\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Shader.kt",
-      "language": "kotlin",
-      "line": 44,
-      "offset": 8,
-      "length": 18,
-      "code": {
-        "startLine": 42,
-        "length": 18,
-        "offset": 15,
-        "surroundingCode": "    }\n\n    fun uploadUniformVec2f(name: String, vec: Vector2f) {\n        bind()\n        glUniform2fv(uniform[name]!!, floatArrayOf(vec.x, vec.y))"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "gameoflife",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "-6155945046972132554"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "tags": [
-    "kotlin"
-  ],
-  "severity": "High",
-  "comment": "Function \"uploadUniformShader\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/opengl/render/BatchRenderer.kt",
-      "language": "kotlin",
-      "line": 7,
-      "offset": 17,
-      "length": 19,
-      "code": {
-        "startLine": 5,
-        "length": 19,
-        "offset": 85,
-        "surroundingCode": "abstract class BatchRenderer<T : Batch>(val batch: T): Closeable {\n\n    abstract fun uploadUniformShader(shader: ShaderProgram)\n\n    override fun close() {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "gameoflife",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "3745720420680421376"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "tags": [
-    "kotlin"
-  ],
-  "severity": "High",
-  "comment": "Property \"batch\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/opengl/render/BatchRenderer.kt",
-      "language": "kotlin",
-      "line": 5,
-      "offset": 44,
+      "line": 10,
+      "offset": 41,
       "length": 5,
       "code": {
-        "startLine": 3,
+        "startLine": 8,
         "length": 5,
-        "offset": 70,
-        "surroundingCode": "import java.io.Closeable\n\nabstract class BatchRenderer<T : Batch>(val batch: T): Closeable {\n\n    abstract fun uploadUniformShader(shader: ShaderProgram)"
+        "offset": 69,
+        "surroundingCode": "import java.nio.ByteBuffer\n\nopen class Texture(data: ByteBuffer, val width: Int, val height: Int, val format: Int = GL_RGBA) : Pointed {\n\n    constructor(img: BufferedImage, width: Int, height: Int) : this(img.toRawData(), width, height)"
       }
     }
   ],
   "attributes": {
     "module": "gameoflife",
-    "inspectionName": "UnusedSymbol"
+    "inspectionName": "MemberVisibilityCanBePrivate"
   },
-  "hash": "1852642246388574686"
+  "hash": "-7838246697164739356"
 },{
   "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
+  "category": "Style issues",
+  "type": "Class member can have 'private' visibility",
   "tags": [
     "kotlin"
   ],
-  "severity": "High",
-  "comment": "Class \"BatchRenderer\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "severity": "Info",
+  "comment": "Property 'height' could be private",
+  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
   "sources": [
     {
-      "type": "class",
-      "path": "src/main/kotlin/net/redstonecraft/opengl/render/BatchRenderer.kt",
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Texture.kt",
       "language": "kotlin",
-      "line": 5,
-      "offset": 15,
-      "length": 13,
+      "line": 10,
+      "offset": 57,
+      "length": 6,
       "code": {
-        "startLine": 3,
-        "length": 13,
-        "offset": 41,
-        "surroundingCode": "import java.io.Closeable\n\nabstract class BatchRenderer<T : Batch>(val batch: T): Closeable {\n\n    abstract fun uploadUniformShader(shader: ShaderProgram)"
+        "startLine": 8,
+        "length": 6,
+        "offset": 85,
+        "surroundingCode": "import java.nio.ByteBuffer\n\nopen class Texture(data: ByteBuffer, val width: Int, val height: Int, val format: Int = GL_RGBA) : Pointed {\n\n    constructor(img: BufferedImage, width: Int, height: Int) : this(img.toRawData(), width, height)"
       }
     }
   ],
   "attributes": {
     "module": "gameoflife",
-    "inspectionName": "UnusedSymbol"
+    "inspectionName": "MemberVisibilityCanBePrivate"
   },
-  "hash": "5323805255492693189"
+  "hash": "916123556367109977"
+},{
+  "tool": "Code Inspection",
+  "category": "Style issues",
+  "type": "Class member can have 'private' visibility",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Info",
+  "comment": "Property 'format' could be private",
+  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Texture.kt",
+      "language": "kotlin",
+      "line": 10,
+      "offset": 74,
+      "length": 6,
+      "code": {
+        "startLine": 8,
+        "length": 6,
+        "offset": 102,
+        "surroundingCode": "import java.nio.ByteBuffer\n\nopen class Texture(data: ByteBuffer, val width: Int, val height: Int, val format: Int = GL_RGBA) : Pointed {\n\n    constructor(img: BufferedImage, width: Int, height: Int) : this(img.toRawData(), width, height)"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "gameoflife",
+    "inspectionName": "MemberVisibilityCanBePrivate"
+  },
+  "hash": "6297573461001139415"
+},{
+  "tool": "Code Inspection",
+  "category": "Style issues",
+  "type": "Class member can have 'private' visibility",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Info",
+  "comment": "Function 'bind' could be private",
+  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Texture.kt",
+      "language": "kotlin",
+      "line": 16,
+      "offset": 8,
+      "length": 4,
+      "code": {
+        "startLine": 14,
+        "length": 4,
+        "offset": 52,
+        "surroundingCode": "    override val pointer = glGenTextures()\n\n    fun bind() {\n        glBindTexture(GL_TEXTURE_2D, pointer)\n    }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "gameoflife",
+    "inspectionName": "MemberVisibilityCanBePrivate"
+  },
+  "hash": "-6740618195025258005"
 }]}
