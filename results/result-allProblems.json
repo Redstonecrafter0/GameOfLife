@@ -10,11 +10,11 @@
       "type": "file",
       "path": "pom.xml",
       "language": "XML",
-      "line": 140,
+      "line": 139,
       "offset": 26,
       "length": 17,
       "code": {
-        "startLine": 138,
+        "startLine": 137,
         "length": 17,
         "offset": 142,
         "surroundingCode": "                <groupId>org.jetbrains.kotlin</groupId>\n                <artifactId>kotlin-maven-plugin</artifactId>\n                <version>${kotlin.version}</version>\n                <executions>\n                    <execution>"
@@ -25,7 +25,7 @@
     "module": "gameoflife",
     "inspectionName": "DifferentKotlinMavenVersion"
   },
-  "hash": "3d89db510599324c58b1107597268c80870a01939cee3b55a5b196283cce1891"
+  "hash": "a91876d74d5695d2d800ed7c1fbc7a876db60ebc9a05c06d04409d3b8e4a0a54"
 },{
   "tool": "Code Inspection",
   "category": "Java interop issues",
@@ -53,5 +53,5 @@
     "module": "gameoflife",
     "inspectionName": "HasPlatformType"
   },
-  "hash": "796a5956c05cbf5324c338dc627af01644f8c7a67a7baf5053e63ad79cf03233"
+  "hash": "e0676ac625a0ac2b11aa67d1971963879906354780077c3925b784ab1f77bb1a"
 }]}
