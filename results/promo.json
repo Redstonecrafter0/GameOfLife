@@ -6,37 +6,6 @@
     "kotlin"
   ],
   "severity": "High",
-  "comment": "Function \"uploadUniformVec3f\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Shader.kt",
-      "language": "kotlin",
-      "line": 48,
-      "offset": 8,
-      "length": 18,
-      "code": {
-        "startLine": 46,
-        "length": 18,
-        "offset": 80,
-        "surroundingCode": "        glUniform2fv(uniform[name]!!, floatArrayOf(vec.x, vec.y))\n    }\n    fun uploadUniformVec3f(name: String, vec: Vector3f) {\n        bind()\n        glUniform3fv(uniform[name]!!, floatArrayOf(vec.x, vec.y, vec.z))"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "gameoflife",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "-1322929896337436628"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "tags": [
-    "kotlin"
-  ],
-  "severity": "High",
   "comment": "Function \"uploadUniformMat3f\" is never used",
   "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
   "sources": [
@@ -60,6 +29,68 @@
     "inspectionName": "UnusedSymbol"
   },
   "hash": "6919176417255311329"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Function \"uploadUniformMat2f\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Shader.kt",
+      "language": "kotlin",
+      "line": 57,
+      "offset": 8,
+      "length": 18,
+      "code": {
+        "startLine": 55,
+        "length": 18,
+        "offset": 15,
+        "surroundingCode": "    }\n\n    fun uploadUniformMat2f(name: String, mat: Matrix2f) {\n        bind()\n        val buffer = BufferUtils.createFloatBuffer(4)"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "gameoflife",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "-4485216261377393883"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Function \"uploadUniformVec3f\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Shader.kt",
+      "language": "kotlin",
+      "line": 48,
+      "offset": 8,
+      "length": 18,
+      "code": {
+        "startLine": 46,
+        "length": 18,
+        "offset": 80,
+        "surroundingCode": "        glUniform2fv(uniform[name]!!, floatArrayOf(vec.x, vec.y))\n    }\n    fun uploadUniformVec3f(name: String, vec: Vector3f) {\n        bind()\n        glUniform3fv(uniform[name]!!, floatArrayOf(vec.x, vec.y, vec.z))"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "gameoflife",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "-1322929896337436628"
 },{
   "tool": "Code Inspection",
   "category": "Redundant constructs",
@@ -130,21 +161,21 @@
     "kotlin"
   ],
   "severity": "High",
-  "comment": "Function \"uploadUniformMat2f\" is never used",
+  "comment": "Function \"uploadUniformShader\" is never used",
   "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
   "sources": [
     {
       "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/opengl/render/Shader.kt",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/BatchRenderer.kt",
       "language": "kotlin",
-      "line": 57,
-      "offset": 8,
-      "length": 18,
+      "line": 7,
+      "offset": 17,
+      "length": 19,
       "code": {
-        "startLine": 55,
-        "length": 18,
-        "offset": 15,
-        "surroundingCode": "    }\n\n    fun uploadUniformMat2f(name: String, mat: Matrix2f) {\n        bind()\n        val buffer = BufferUtils.createFloatBuffer(4)"
+        "startLine": 5,
+        "length": 19,
+        "offset": 85,
+        "surroundingCode": "abstract class BatchRenderer<T : Batch>(val batch: T): Closeable {\n\n    abstract fun uploadUniformShader(shader: ShaderProgram)\n\n    override fun close() {"
       }
     }
   ],
@@ -152,7 +183,7 @@
     "module": "gameoflife",
     "inspectionName": "UnusedSymbol"
   },
-  "hash": "-4485216261377393883"
+  "hash": "3745720420680421376"
 },{
   "tool": "Code Inspection",
   "category": "Redundant constructs",
@@ -161,21 +192,21 @@
     "kotlin"
   ],
   "severity": "High",
-  "comment": "Property \"copy\" is never used",
+  "comment": "Property \"batch\" is never used",
   "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
   "sources": [
     {
       "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/opengl/Util.kt",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/BatchRenderer.kt",
       "language": "kotlin",
       "line": 5,
-      "offset": 13,
-      "length": 4,
+      "offset": 44,
+      "length": 5,
       "code": {
         "startLine": 3,
-        "length": 4,
-        "offset": 39,
-        "surroundingCode": "import org.joml.Vector3f\n\nval Vector3f.copy\n    get() = Vector3f(x, y, z)"
+        "length": 5,
+        "offset": 70,
+        "surroundingCode": "import java.io.Closeable\n\nabstract class BatchRenderer<T : Batch>(val batch: T): Closeable {\n\n    abstract fun uploadUniformShader(shader: ShaderProgram)"
       }
     }
   ],
@@ -183,5 +214,36 @@
     "module": "gameoflife",
     "inspectionName": "UnusedSymbol"
   },
-  "hash": "3536568650801364410"
+  "hash": "1852642246388574686"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Class \"BatchRenderer\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "class",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/BatchRenderer.kt",
+      "language": "kotlin",
+      "line": 5,
+      "offset": 15,
+      "length": 13,
+      "code": {
+        "startLine": 3,
+        "length": 13,
+        "offset": 41,
+        "surroundingCode": "import java.io.Closeable\n\nabstract class BatchRenderer<T : Batch>(val batch: T): Closeable {\n\n    abstract fun uploadUniformShader(shader: ShaderProgram)"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "gameoflife",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "5323805255492693189"
 }]}
