@@ -12,5 +12,5 @@ class OrthographicCamera(left: Float, right: Float, bottom: Float, top: Float) :
 
 class PerspectiveCamera(val fov: Float, val aspect: Float, val near: Float, val far: Float) : Camera {
 
-    override val projectionMatrix = Matrix4f().perspective(fov, aspect, near, far)
+    override val projectionMatrix: Matrix4f = Matrix4f().perspective(fov, aspect, near, far)
 }
