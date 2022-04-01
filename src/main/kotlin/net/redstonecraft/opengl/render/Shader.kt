@@ -73,6 +73,11 @@ class ShaderProgram(vertexShader: VertexShader, fragmentShader: FragmentShader) 
         glUniformMatrix4fv(uniform[name]!!, false, buffer)
     }
 
+    fun uploadUniformFloat(name: String, value: Float) {
+        bind()
+        glUniform1f(uniform[name]!!, value)
+    }
+
     fun bind() {
         glUseProgram(pointer)
     }

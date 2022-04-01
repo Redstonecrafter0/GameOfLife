@@ -6,8 +6,8 @@ interface Camera {
     val projectionMatrix: Matrix4f
 }
 
-object OrthographicCamera : Camera {
-    override val projectionMatrix: Matrix4f = Matrix4f().ortho(-1F, 1F, 1F, -1F, 0F, 100F)
+class OrthographicCamera(left: Float, right: Float, bottom: Float, top: Float) : Camera {
+    override val projectionMatrix: Matrix4f = Matrix4f().ortho(left, right, bottom, top, 0F, 100F)
 }
 
 class PerspectiveCamera(val fov: Float, val aspect: Float, val near: Float, val far: Float) : Camera {

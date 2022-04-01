@@ -1,3 +1,0 @@
-headers = jni.h
-headerFilter = jni.h
-package = jni
