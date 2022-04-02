@@ -51,10 +51,10 @@ open class Window(width: Int, height: Int, title: String, vsync: Boolean = true)
         if (vsync) glfwSwapInterval(1)
         glfwSetInputMode(pointer, GLFW_CURSOR, GLFW_CURSOR_NORMAL)
         glfwShowWindow(pointer)
+        GL.createCapabilities()
     }
 
     fun loop() {
-        GL.createCapabilities()
         var end: Long = System.nanoTime()
         var oldStart = System.nanoTime()
         while (!glfwWindowShouldClose(pointer)) {

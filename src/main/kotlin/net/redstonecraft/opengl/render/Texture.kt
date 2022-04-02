@@ -1,8 +1,10 @@
 package net.redstonecraft.opengl.render
 
 import net.redstonecraft.opengl.interfaces.Pointed
+import org.lwjgl.BufferUtils
 import org.lwjgl.nanovg.NanoSVG.*
 import org.lwjgl.opengl.GL12.*
+import java.awt.Color
 import java.awt.image.BufferedImage
 import java.io.File
 import java.nio.ByteBuffer
@@ -44,12 +46,18 @@ class SVGTexture(code: String, width: Int, height: Int) : Texture(code.toSvg(wid
 
 private fun BufferedImage.toRawData(): ByteBuffer {
     val data = ByteArray(height * width * 4)
-    for (y in 0..height) {
-        for (x in 0..width) {
-            data[y * width + x] = getRGB(x, y).toByte()
+    for (y in 0 until height) {
+        for (x in 0 until width) {
+            val rgba = Color(getRGB(x, y), true)
+            data[(y * width + x) * 4 + 0] = rgba.red.toByte()
+            data[(y * width + x) * 4 + 1] = rgba.green.toByte()
+            data[(y * width + x) * 4 + 2] = rgba.blue.toByte()
+            data[(y * width + x) * 4 + 3] = rgba.alpha.toByte()
         }
     }
-    return ByteBuffer.wrap(data)
+    val buffer = BufferUtils.createByteBuffer(data.size)
+    buffer.put(data)
+    return buffer
 }
 
 private fun String.toSvg(width: Int, height: Int): ByteBuffer {

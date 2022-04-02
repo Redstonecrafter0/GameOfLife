@@ -1,3 +1,5 @@
+#version 330 core
+
 in vec4 fColor;
 in vec4 fBgColor;
 in vec2 fTexCoords;

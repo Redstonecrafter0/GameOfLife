@@ -5,7 +5,6 @@ import org.joml.*
 import org.lwjgl.BufferUtils
 import org.lwjgl.opengl.GL31.*
 import java.io.Closeable
-import java.nio.IntBuffer
 
 class ShaderProgram(vertexShader: VertexShader, fragmentShader: FragmentShader) : Pointed, Closeable {
 
@@ -14,8 +13,8 @@ class ShaderProgram(vertexShader: VertexShader, fragmentShader: FragmentShader) 
 
     init {
         try {
-            vertexShader.attach()
-            fragmentShader.attach()
+            glAttachShader(pointer, vertexShader.pointer)
+            glAttachShader(pointer, fragmentShader.pointer)
             glLinkProgram(pointer)
             val status = glGetProgrami(pointer, GL_LINK_STATUS)
             val len = glGetProgrami(pointer, GL_INFO_LOG_LENGTH)
@@ -25,7 +24,7 @@ class ShaderProgram(vertexShader: VertexShader, fragmentShader: FragmentShader) 
             val uniformLen = glGetProgrami(pointer, GL_ACTIVE_UNIFORMS)
             val strLen = glGetProgrami(pointer, GL_ACTIVE_UNIFORM_MAX_LENGTH)
             for (i in 0 until uniformLen) {
-                val name: String = glGetActiveUniform(pointer, i, strLen, null as IntBuffer?, null as IntBuffer?)
+                val name = glGetActiveUniform(pointer, i, strLen, BufferUtils.createIntBuffer(1), BufferUtils.createIntBuffer(1))
                 uniform[name] = glGetUniformLocation(pointer, name)
             }
         } catch (e: RuntimeException) {
@@ -34,48 +33,56 @@ class ShaderProgram(vertexShader: VertexShader, fragmentShader: FragmentShader) 
         }
     }
 
-    fun uploadTexture(name: String, texture: Texture, slot: Int = 0) {
+    fun uploadUTexture(name: String, texture: Texture, slot: Int = 0) {
         bind()
         glActiveTexture(GL_TEXTURE0 + slot)
         glBindTexture(GL_TEXTURE_BUFFER, texture.pointer)
         glUniform1i(uniform[name]!!, slot)
     }
 
-    fun uploadUniformVec2f(name: String, vec: Vector2f) {
+    fun uploadUVec2f(name: String, vec: Vector2f) {
         bind()
         glUniform2fv(uniform[name]!!, floatArrayOf(vec.x, vec.y))
     }
-    fun uploadUniformVec3f(name: String, vec: Vector3f) {
+    fun uploadUVec3f(name: String, vec: Vector3f) {
         bind()
         glUniform3fv(uniform[name]!!, floatArrayOf(vec.x, vec.y, vec.z))
     }
-    fun uploadUniformVec4f(name: String, vec: Vector4f) {
+    fun uploadUVec4f(name: String, vec: Vector4f) {
         bind()
         glUniform4fv(uniform[name]!!, floatArrayOf(vec.x, vec.y, vec.z, vec.w))
     }
 
-    fun uploadUniformMat2f(name: String, mat: Matrix2f) {
+    fun uploadUMat2f(name: String, mat: Matrix2f) {
         bind()
         val buffer = BufferUtils.createFloatBuffer(4)
         mat.get(buffer)
         glUniformMatrix2fv(uniform[name]!!, false, buffer)
     }
-    fun uploadUniformMat3f(name: String, mat: Matrix3f) {
+    fun uploadUMat3f(name: String, mat: Matrix3f) {
         bind()
         val buffer = BufferUtils.createFloatBuffer(9)
         mat.get(buffer)
         glUniformMatrix3fv(uniform[name]!!, false, buffer)
     }
-    fun uploadUniformMat4f(name: String, mat: Matrix4f) {
+    fun uploadUMat4f(name: String, mat: Matrix4f) {
         bind()
         val buffer = BufferUtils.createFloatBuffer(16)
         mat.get(buffer)
         glUniformMatrix4fv(uniform[name]!!, false, buffer)
     }
 
-    fun uploadUniformFloat(name: String, value: Float) {
+    fun uploadUFloat(name: String, value: Float) {
         bind()
         glUniform1f(uniform[name]!!, value)
+    }
+    fun uploadUInt(name: String, value: Int) {
+        bind()
+        glUniform1i(uniform[name]!!, value)
+    }
+    fun uploadUUInt(name: String, value: Int) {
+        bind()
+        glUniform1ui(uniform[name]!!, value)
     }
 
     fun bind() {
@@ -100,16 +107,11 @@ abstract class Shader(source: String, private val type: Int) : Pointed, Closeabl
             val len = glGetShaderi(pointer, GL_INFO_LOG_LENGTH)
             val log = glGetShaderInfoLog(pointer, len)
             println(log)
-            if (status == GL_FALSE) throw RuntimeException("Could not compile shader")
-            attach()
+            if (status == GL_FALSE) throw RuntimeException("Could not compile ${if (type == GL_VERTEX_SHADER) "vertex" else "fragment"} shader")
         } catch (e: RuntimeException) {
             close()
             throw e
         }
-    }
-
-    fun attach() {
-        glAttachShader(pointer, type)
     }
 
     final override fun close() {

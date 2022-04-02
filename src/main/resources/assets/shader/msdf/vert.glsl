@@ -1,4 +1,6 @@
-layout (location=0) in vec4 aPos;
+#version 330 core
+
+layout (location=0) in vec2 aPos;
 layout (location=1) in vec4 aColor;
 layout (location=2) in vec4 aBgColor;
 layout (location=3) in vec2 aTexCoords;
@@ -22,5 +24,5 @@ void main() {
     fColor = vec4(rgb2hsv(aColor.rgb), aColor.a);
     fBgColor = vec4(rgb2hsv(aBgColor.rgb), aBgColor.a);
     fTexCoords = aTexCoords;
-    gl_Position = uProjectionMatrix * aPos;
+    gl_Position = uProjectionMatrix * vec4(aPos.x, aPos.y, 1, 1);
 }
