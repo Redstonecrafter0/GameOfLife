@@ -11,15 +11,20 @@ fun main() {
     var renderer: SDFFontRenderer? = null
     val window = object : Window(1280, 720, "Game Of Life") {
         override fun render(deltaTime: Long) {
-            glClear(GL_COLOR)
-            glClearColor(0F, 0F, 0F, 1F)
-            renderer!!.render("testasdhpoaihdsoidoaihsdoioaiphdpaidpahios\ntestasdhpoaihdsoidoaihsdoioaiphdpaidpahios\ntestasdhpoaihdsoidoaihsdoioaiphdpaidpahios\ntestasdhpoaihdsoidoaihsdoioaiphdpaidpahios\ntestasdhpoaihdsoidoaihsdoioaiphdpaidpahios\ntestasdhpoaihdsoidoaihsdoioaiphdpaidpahios\ntestasdhpoaihdsoidoaihsdoioaiphdpaidpahios\ntestasdhpoaihdsoidoaihsdoioaiphdpaidpahios\ntestasdhpoaihdsoidoaihsdoioaiphdpaidpahios\ntestasdhpoaihdsoidoaihsdoioaiphdpaidpahios\ntestasdhpoaihdsoidoaihsdoioaiphdpaidpahios\ntestasdhpoaihdsoidoaihsdoioaiphdpaidpahios\ntestasdhpoaihdsoidoaihsdoioaiphdpaidpahios\ntestasdhpoaihdsoidoaihsdoioaiphdpaidpahios\ntestasdhpoaihdsoidoaihsdoioaiphdpaidpahios\ntestasdhpoaihdsoidoaihsdoioaiphdpaidpahios\ntestasdhpoaihdsoidoaihsdoioaiphdpaidpahios\ntestasdhpoaihdsoidoaihsdoioaiphdpaidpahios\ntestasdhpoaihdsoidoaihsdoioaiphdpaidpahios\ntestasdhpoaihdsoidoaihsdoioaiphdpaidpahios\ntestasdhpoaihdsoidoaihsdoioaiphdpaidpahios\ntestasdhpoaihdsoidoaihsdoioaiphdpaidpahios\ntestasdhpoaihdsoidoaihsdoioaiphdpaidpahios\ntestasdhpoaihdsoidoaihsdoioaiphdpaidpahios", -.5F, -.5F, bgColor = Color.WHITE)
+            glClear(GL_COLOR_BUFFER_BIT)
+            glClearColor(.1F, .1F, .1F, 1F)
+            renderer!!.render("test text", 0F, 0F, bgColor = Color.WHITE)
             renderer!!.finish()
+        }
+
+        override fun postStart() {
+            glEnable(GL_BLEND)
+            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
         }
     }
     renderer = SDFFontRenderer(SDFFont(
         File("image.png").readBytes(),
         File("atlas.json").readText()
-    ))
+    ), 500F)
     window.loop()
 }

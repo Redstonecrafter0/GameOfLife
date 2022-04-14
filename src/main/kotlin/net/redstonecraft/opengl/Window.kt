@@ -55,6 +55,7 @@ open class Window(width: Int, height: Int, title: String, vsync: Boolean = true)
     }
 
     fun loop() {
+        postStart()
         var end: Long = System.nanoTime()
         var oldStart = System.nanoTime()
         while (!glfwWindowShouldClose(pointer)) {
@@ -72,6 +73,8 @@ open class Window(width: Int, height: Int, title: String, vsync: Boolean = true)
      * @param deltaTime in nanoseconds
      * */
     open fun render(deltaTime: Long) {}
+
+    open fun postStart() {}
 
     open fun onKey(key: Int, scancode: Int, action: Int, mods: Int) {}
     open fun onChar(key: Int) {}

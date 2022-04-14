@@ -24,5 +24,5 @@ void main() {
     fColor = vec4(rgb2hsv(aColor.rgb), aColor.a);
     fBgColor = vec4(rgb2hsv(aBgColor.rgb), aBgColor.a);
     fTexCoords = aTexCoords;
-    gl_Position = uProjectionMatrix * vec4(aPos.x, aPos.y, 1, 1);
+    gl_Position = uProjectionMatrix * vec4(aPos, -5, 1);
 }

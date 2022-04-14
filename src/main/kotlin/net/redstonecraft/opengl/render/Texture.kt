@@ -45,18 +45,19 @@ class SVGTexture(code: String, width: Int, height: Int) : Texture(code.toSvg(wid
 }
 
 private fun BufferedImage.toRawData(): ByteBuffer {
-    val data = ByteArray(height * width * 4)
+    val pixels = IntArray(height * width)
+    getRGB(0, 0, width, height, pixels, 0, width)
+    val buffer = BufferUtils.createByteBuffer(width * height * 4)
     for (y in 0 until height) {
         for (x in 0 until width) {
-            val rgba = Color(getRGB(x, y), true)
-            data[(y * width + x) * 4 + 0] = rgba.red.toByte()
-            data[(y * width + x) * 4 + 1] = rgba.green.toByte()
-            data[(y * width + x) * 4 + 2] = rgba.blue.toByte()
-            data[(y * width + x) * 4 + 3] = rgba.alpha.toByte()
+            val pixel = pixels[y * width + x]
+            buffer.put((pixel shr 16 and 0xFF).toByte())
+            buffer.put((pixel shr 8 and 0xFF).toByte())
+            buffer.put((pixel shr 0 and 0xFF).toByte())
+            buffer.put((pixel shr 24 and 0xFF).toByte())
         }
     }
-    val buffer = BufferUtils.createByteBuffer(data.size)
-    buffer.put(data)
+    buffer.flip()
     return buffer
 }
 
