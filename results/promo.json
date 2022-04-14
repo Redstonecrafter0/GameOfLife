@@ -1,0 +1,32 @@
+{"version":"3","listProblem":[{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Property \"texture\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "field",
+      "path": "src/main/kotlin/net/redstonecraft/opengl/render/SDFFontRenderer.kt",
+      "language": "kotlin",
+      "line": 24,
+      "offset": 8,
+      "length": 7,
+      "code": {
+        "startLine": 22,
+        "length": 7,
+        "offset": 73,
+        "surroundingCode": "    val batch = SDFFontBatch(font, fontSize, camera, batchSize)\n\n    val texture = font.texture\n\n    fun render(text: String, x: Float, y: Float, color: Color = Color.WHITE, bgColor: Color = Color(0, 0, 0, 0)) {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "gameoflife",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "3764441598025354171"
+}]}
