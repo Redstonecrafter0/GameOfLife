@@ -6,8 +6,7 @@ import kotlinx.serialization.json.Json
 import net.redstonecraft.opengl.camera.Camera
 import net.redstonecraft.opengl.camera.OrthographicCamera
 import org.joml.Vector2f
-import org.lwjgl.opengl.GL15.GL_DYNAMIC_DRAW
-import org.lwjgl.opengl.GL15.GL_STATIC_DRAW
+import org.lwjgl.opengl.GL15.*
 import java.awt.Color
 import javax.imageio.ImageIO
 import kotlin.streams.toList
@@ -47,7 +46,8 @@ class SDFFontBatch(
     val font: SDFFont,
     val fontSize: Float,
     val camera: Camera = OrthographicCamera(0F, 1920F, 1080F, 0F),
-    size: Int = 5000) : Batch(
+    size: Int = 5000
+) : Batch(
     size,
     ShaderProgram(
         VertexShader(

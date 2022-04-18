@@ -27,5 +27,5 @@ void main() {
     float screenPxDistance = uScreenPxRange * (sd - 0.5);
     float opacity = clamp(screenPxDistance + 0.5, 0.0, 1.0);
     color = mix(rBgColor, rColor, opacity);
-    color = vec4(1, 1, 1, color.r - color.r + 1);
+    color = vec4(color.r, 1, 1, 1);
 }

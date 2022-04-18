@@ -12,27 +12,34 @@ abstract class Batch(
 
     var count = 0
 
-    open fun postVao(id: Int) {
-        glBindVertexArray(id)
-    }
+    open fun postVao(id: Int) {}
     open fun postVbo(id: Int) {
-        glBindBuffer(GL_ARRAY_BUFFER, id)
         glBufferData(GL_ARRAY_BUFFER, (Float.SIZE_BYTES * vertSize * size).toLong(), GL_DYNAMIC_DRAW)
     }
-    open fun postEbo(id: Int) {
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id)
+    open fun postEbo(id: Int) {}
+
+    val vao = glGenVertexArrays().apply {
+        glBindVertexArray(this)
     }
 
-    val vao = glGenBuffers().apply {
-        postVao(this)
+    init {
+        postVao(vao)
     }
 
     val vbo = glGenBuffers().apply {
-        postVbo(this)
+        glBindBuffer(GL_ARRAY_BUFFER, this)
+    }
+
+    init {
+        postVbo(vbo)
     }
 
     val ebo = glGenBuffers().apply {
-        postEbo(this)
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this)
+    }
+
+    init {
+        postEbo(ebo)
     }
 
     init {

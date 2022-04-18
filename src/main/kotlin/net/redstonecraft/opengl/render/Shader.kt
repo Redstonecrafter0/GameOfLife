@@ -36,7 +36,7 @@ class ShaderProgram(vertexShader: VertexShader, fragmentShader: FragmentShader) 
     fun uploadUTexture(name: String, texture: Texture, slot: Int = 0) {
         bind()
         glActiveTexture(GL_TEXTURE0 + slot)
-        glBindTexture(GL_TEXTURE_BUFFER, texture.pointer)
+        glBindTexture(GL_TEXTURE_2D, texture.pointer)
         glUniform1i(uniform[name]!!, slot)
     }
 
