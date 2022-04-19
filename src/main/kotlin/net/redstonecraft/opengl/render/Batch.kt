@@ -82,8 +82,6 @@ abstract class Batch(
     fun bufferVbo(size: Long, data: FloatArray, usage: Int, sub: Boolean = true) = buffer(GL_ARRAY_BUFFER, vbo, size, data, usage, sub)
     fun bufferEbo(size: Long, data: IntArray, usage: Int, sub: Boolean = true) = buffer(GL_ELEMENT_ARRAY_BUFFER, ebo, size, data, usage, sub)
 
-    //(Float.SIZE_BYTES * vertSize * size).toLong()
-
     abstract fun upload(shader: ShaderProgram)
     abstract fun bufferData()
 

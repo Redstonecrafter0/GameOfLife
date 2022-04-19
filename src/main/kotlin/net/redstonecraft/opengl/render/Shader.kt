@@ -39,6 +39,14 @@ class ShaderProgram(vertexShader: VertexShader, fragmentShader: FragmentShader) 
         glBindTexture(GL_TEXTURE_2D, texture.pointer)
         glUniform1i(uniform[name]!!, slot)
     }
+    fun uploadUTextures(name: String, vararg texture: Texture, offset: Int = 0) {
+        bind()
+        for ((i, t) in texture.withIndex()) {
+            glActiveTexture(GL_TEXTURE0 + offset + i)
+            glBindTexture(GL_TEXTURE_2D, t.pointer)
+        }
+        glUniform1iv(uniform["${name}[0]"]!!, IntArray(texture.size) { it + offset })
+    }
 
     fun uploadUVec2f(name: String, vec: Vector2f) {
         bind()

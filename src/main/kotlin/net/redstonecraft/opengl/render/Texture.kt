@@ -3,13 +3,15 @@ package net.redstonecraft.opengl.render
 import net.redstonecraft.opengl.interfaces.Pointed
 import org.lwjgl.BufferUtils
 import org.lwjgl.nanovg.NanoSVG.*
+import org.lwjgl.opengl.GL11
 import org.lwjgl.opengl.GL12.*
+import org.lwjgl.system.MemoryUtil.NULL
 import java.awt.Color
 import java.awt.image.BufferedImage
 import java.io.File
 import java.nio.ByteBuffer
 
-open class Texture(data: ByteBuffer, val width: Int, val height: Int, val format: Int = GL_RGBA) : Pointed {
+open class Texture(data: ByteBuffer?, val width: Int, val height: Int, val format: Int = GL_RGBA) : Pointed {
 
     constructor(img: BufferedImage, width: Int, height: Int) : this(img.toRawData(), width, height)
 
@@ -33,7 +35,11 @@ open class Texture(data: ByteBuffer, val width: Int, val height: Int, val format
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR)
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE)
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE)
-        update(data)
+        if (data != null) {
+            update(data)
+        } else {
+            glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, NULL)
+        }
     }
 
 }

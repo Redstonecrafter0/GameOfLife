@@ -1,7 +1,6 @@
 #version 330 core
 
 in vec4 fColor;
-in vec4 fBgColor;
 in vec2 fTexCoords;
 
 uniform sampler2D uTexture;
@@ -21,11 +20,10 @@ vec3 hsv2rgb(vec3 c) {
 
 void main() {
     vec4 rColor = vec4(hsv2rgb(fColor.rgb), fColor.a);
-    vec4 rBgColor = vec4(hsv2rgb(fBgColor.rgb), fBgColor.a);
-    vec3 msd = texture(uTexture, fTexCoords).rgb;
+    vec4 msd = texture(uTexture, fTexCoords);
+    vec4 rBgColor = mix(vec4(0, 0, 0, 0), vec4(0, 0, 0, 0), msd.a);//vec4(hsv2rgb(fBgColor.rgb), fBgColor.a);
     float sd = median(msd.r, msd.g, msd.b);
     float screenPxDistance = uScreenPxRange * (sd - 0.5);
     float opacity = clamp(screenPxDistance + 0.5, 0.0, 1.0);
     color = mix(rBgColor, rColor, opacity);
-    color = vec4(color.r, 1, 1, 1);
 }

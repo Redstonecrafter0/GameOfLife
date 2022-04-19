@@ -13,28 +13,26 @@ import kotlin.streams.toList
 
 class SDFFontRenderer(
     font: SDFFont,
-    fontSize: Float = 12F,
-    camera: Camera = OrthographicCamera(1F, 1F, 1F, 1F),
+    fontSizePx: Float = 12F,
+    camera: Camera = OrthographicCamera(0F, 1920F, 0F, 1080F),
     batchSize: Int = 5000
 ) {
 
-    val batch = SDFFontBatch(font, fontSize, camera, batchSize)
+    val batch = SDFFontBatch(font, fontSizePx, camera, batchSize)
 
-    val texture = font.texture
-
-    fun render(text: String, x: Float, y: Float, color: Color = Color.WHITE, bgColor: Color = Color(0, 0, 0, 0)) {
+    fun render(text: String, x: Float, y: Float, color: Color = Color.WHITE) {
         var yOff = .0
         text.split("\n").map {
-            renderLine(it, x, (y + yOff).toFloat(), color, bgColor)
-            yOff += (batch.font.defs.metrics.lineHeight * batch.fontSize)
+            renderLine(it, x, (y + yOff).toFloat(), color)
+            yOff += (batch.font.defs.metrics.lineHeight * batch.fontSizePx)
         }
     }
 
-    private fun renderLine(text: String, x: Float, y: Float, color: Color, bgColor: Color) {
+    private fun renderLine(text: String, x: Float, y: Float, color: Color) {
         var xOff = .0
         val data = text.chars().toList()
         for (char in data) {
-            xOff += batch.bufferChar(char, (x + xOff).toFloat(), y, color, bgColor)
+            xOff += batch.bufferChar(char, (x + xOff).toFloat(), y, color)
         }
     }
 
@@ -44,8 +42,8 @@ class SDFFontRenderer(
 
 class SDFFontBatch(
     val font: SDFFont,
-    val fontSize: Float,
-    val camera: Camera = OrthographicCamera(0F, 1920F, 1080F, 0F),
+    val fontSizePx: Float,
+    val camera: Camera,
     size: Int = 5000
 ) : Batch(
     size,
@@ -58,7 +56,7 @@ class SDFFontBatch(
                 .decodeToString()
         )
     ),
-    2, 4, 4, 2
+    2, 4, 2
 ) {
 
     val vertices = FloatArray(size * vertSize) { 0F }
@@ -75,15 +73,15 @@ class SDFFontBatch(
         bufferEbo(0, elementBuffer, GL_STATIC_DRAW, false)
     }
 
-    fun bufferChar(code: Int, x: Float, y: Float, color: Color, bgColor: Color): Double {
-        val glyph = font.glyphs[code] ?: font.glyphs[32] ?: return .5 * fontSize
+    fun bufferChar(code: Int, x: Float, y: Float, color: Color): Double {
+        val glyph = font.glyphs[code] ?: font.glyphs[32] ?: return .5 * fontSizePx
         if (count >= size - 3) flush()
         vert(
             Vector2f(
-                x + glyph.planeBounds.fRight * fontSize,
-                y + glyph.planeBounds.fTop * fontSize
+                x + glyph.planeBounds.fRight * fontSizePx,
+                y + glyph.planeBounds.fTop * fontSizePx
             ),
-            color, bgColor,
+            color,
             Vector2f(
                 glyph.atlasBounds.fRight / font.defs.atlas.width,
                 glyph.atlasBounds.fTop / font.defs.atlas.height
@@ -91,10 +89,10 @@ class SDFFontBatch(
         )
         vert(
             Vector2f(
-                x + glyph.planeBounds.fRight * fontSize,
-                y + glyph.planeBounds.fBottom * fontSize
+                x + glyph.planeBounds.fRight * fontSizePx,
+                y + glyph.planeBounds.fBottom * fontSizePx
             ),
-            color, bgColor,
+            color,
             Vector2f(
                 glyph.atlasBounds.fRight / font.defs.atlas.width,
                 glyph.atlasBounds.fBottom / font.defs.atlas.height
@@ -102,10 +100,10 @@ class SDFFontBatch(
         )
         vert(
             Vector2f(
-                x + glyph.planeBounds.fLeft * fontSize,
-                y + glyph.planeBounds.fBottom * fontSize
+                x + glyph.planeBounds.fLeft * fontSizePx,
+                y + glyph.planeBounds.fBottom * fontSizePx
             ),
-            color, bgColor,
+            color,
             Vector2f(
                 glyph.atlasBounds.fLeft / font.defs.atlas.width,
                 glyph.atlasBounds.fBottom / font.defs.atlas.height
@@ -113,19 +111,19 @@ class SDFFontBatch(
         )
         vert(
             Vector2f(
-                x + glyph.planeBounds.fLeft * fontSize,
-                y + glyph.planeBounds.fTop * fontSize
+                x + glyph.planeBounds.fLeft * fontSizePx,
+                y + glyph.planeBounds.fTop * fontSizePx
             ),
-            color, bgColor,
+            color,
             Vector2f(
                 glyph.atlasBounds.fLeft / font.defs.atlas.width,
                 glyph.atlasBounds.fTop / font.defs.atlas.height
             )
         )
-        return glyph.advance * fontSize
+        return glyph.advance * fontSizePx
     }
 
-    private fun vert(pos: Vector2f, color: Color, bgColor: Color, texCoords: Vector2f) {
+    private fun vert(pos: Vector2f, color: Color, texCoords: Vector2f) {
         vertices[count * vertSize + 0] = pos.x
         vertices[count * vertSize + 1] = pos.y
 
@@ -134,20 +132,15 @@ class SDFFontBatch(
         vertices[count * vertSize + 4] = color.blue / 255F
         vertices[count * vertSize + 5] = color.alpha / 255F
 
-        vertices[count * vertSize + 6] = bgColor.red / 255F
-        vertices[count * vertSize + 7] = bgColor.green / 255F
-        vertices[count * vertSize + 8] = bgColor.blue / 255F
-        vertices[count * vertSize + 9] = bgColor.alpha / 255F
-
-        vertices[count * vertSize + 10] = texCoords.x
-        vertices[count * vertSize + 11] = texCoords.y
+        vertices[count * vertSize + 6] = texCoords.x
+        vertices[count * vertSize + 7] = texCoords.y
         count++
     }
 
     override fun upload(shader: ShaderProgram) {
         shader.uploadUMat4f("uProjectionMatrix", camera.projectionMatrix)
         shader.uploadUTexture("uTexture", font.texture)
-        shader.uploadUFloat("uScreenPxRange", font.getScreenPxDistance(fontSize))
+        shader.uploadUFloat("uScreenPxRange", font.getScreenPxDistance(fontSizePx))
     }
 
     override fun bufferData() {

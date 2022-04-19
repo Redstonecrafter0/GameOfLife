@@ -1,13 +1,15 @@
 #version 330 core
 
 layout (location=0) in vec2 aPos;
-layout (location=1) in vec4 aColor;
-layout (location=2) in vec2 aTexCoords;
+layout (location=1) in vec2 aTexCoords;
+layout (location=2) in vec4 aColor;
+layout (location=3) in float aTexture;
 
 uniform mat4 uProjectionMatrix;
 
-out vec4 fColor;
 out vec2 fTexCoords;
+out vec4 fColor;
+out float fTexture;
 
 vec3 rgb2hsv(vec3 c) {
     vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
@@ -19,7 +21,8 @@ vec3 rgb2hsv(vec3 c) {
 }
 
 void main() {
+    fTexCoords = aTexCoords;
     fColor = vec4(rgb2hsv(aColor.rgb), aColor.a);
-    fTexCoords = vec2(aTexCoords.x, 1 - aTexCoords.y);
+    fTexture = aTexture;
     gl_Position = uProjectionMatrix * vec4(aPos, 1, 1);
 }

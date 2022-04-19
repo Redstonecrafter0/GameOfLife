@@ -1,6 +1,6 @@
 package net.redstonecraft.opengl
 
-import org.joml.Vector3f
+import org.joml.Vector2f
 
-val Vector3f.copy
-    get() = Vector3f(x, y, z)
+val Vector2f.copy
+    get() = Vector2f(x, y)
