@@ -4,8 +4,7 @@ import net.redstonecraft.opengl.camera.Camera
 import net.redstonecraft.opengl.camera.OrthographicCamera
 import net.redstonecraft.opengl.copy
 import org.joml.Vector2f
-import org.lwjgl.opengl.GL15
-import org.lwjgl.opengl.GL15.GL_DYNAMIC_DRAW
+import org.lwjgl.opengl.GL15.*
 import java.awt.Color
 
 class TextureRenderer(
@@ -51,7 +50,7 @@ class TextureBatch(
         for (i in elementBuffer.indices) {
             elementBuffer[i] = indices[i % 6] + i / 6 * 4
         }
-        bufferEbo(0, elementBuffer, GL15.GL_STATIC_DRAW, false)
+        bufferEbo(0, elementBuffer, GL_STATIC_DRAW, false)
     }
 
     fun texture(texture: Texture, pos: Vector2f, size: Vector2f, color: Color, texPos: Vector2f, texSize: Vector2f) {

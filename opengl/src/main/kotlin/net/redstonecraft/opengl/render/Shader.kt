@@ -34,13 +34,11 @@ class ShaderProgram(vertexShader: VertexShader, fragmentShader: FragmentShader) 
     }
 
     fun uploadUTexture(name: String, texture: Texture, slot: Int = 0) {
-        bind()
         glActiveTexture(GL_TEXTURE0 + slot)
         glBindTexture(GL_TEXTURE_2D, texture.pointer)
         glUniform1i(uniform[name]!!, slot)
     }
     fun uploadUTextures(name: String, vararg texture: Texture, offset: Int = 0) {
-        bind()
         for ((i, t) in texture.withIndex()) {
             glActiveTexture(GL_TEXTURE0 + offset + i)
             glBindTexture(GL_TEXTURE_2D, t.pointer)
@@ -49,47 +47,38 @@ class ShaderProgram(vertexShader: VertexShader, fragmentShader: FragmentShader) 
     }
 
     fun uploadUVec2f(name: String, vec: Vector2f) {
-        bind()
         glUniform2fv(uniform[name]!!, floatArrayOf(vec.x, vec.y))
     }
     fun uploadUVec3f(name: String, vec: Vector3f) {
-        bind()
         glUniform3fv(uniform[name]!!, floatArrayOf(vec.x, vec.y, vec.z))
     }
     fun uploadUVec4f(name: String, vec: Vector4f) {
-        bind()
         glUniform4fv(uniform[name]!!, floatArrayOf(vec.x, vec.y, vec.z, vec.w))
     }
 
     fun uploadUMat2f(name: String, mat: Matrix2f) {
-        bind()
         val buffer = BufferUtils.createFloatBuffer(4)
         mat.get(buffer)
         glUniformMatrix2fv(uniform[name]!!, false, buffer)
     }
     fun uploadUMat3f(name: String, mat: Matrix3f) {
-        bind()
         val buffer = BufferUtils.createFloatBuffer(9)
         mat.get(buffer)
         glUniformMatrix3fv(uniform[name]!!, false, buffer)
     }
     fun uploadUMat4f(name: String, mat: Matrix4f) {
-        bind()
         val buffer = BufferUtils.createFloatBuffer(16)
         mat.get(buffer)
         glUniformMatrix4fv(uniform[name]!!, false, buffer)
     }
 
     fun uploadUFloat(name: String, value: Float) {
-        bind()
         glUniform1f(uniform[name]!!, value)
     }
     fun uploadUInt(name: String, value: Int) {
-        bind()
         glUniform1i(uniform[name]!!, value)
     }
     fun uploadUUInt(name: String, value: Int) {
-        bind()
         glUniform1ui(uniform[name]!!, value)
     }
 

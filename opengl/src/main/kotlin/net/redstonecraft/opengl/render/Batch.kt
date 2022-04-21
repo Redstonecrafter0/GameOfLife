@@ -52,7 +52,7 @@ abstract class Batch(
         }
     }
 
-    fun flush() {
+    open fun flush() {
         bufferData()
         shader.bind()
         upload(shader)

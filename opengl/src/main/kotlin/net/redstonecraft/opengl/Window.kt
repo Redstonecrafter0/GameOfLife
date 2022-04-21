@@ -45,6 +45,11 @@ open class Window(width: Int, height: Int, title: String, vsync: Boolean = true)
                 if (window == pointer) onScroll(xoffset, yoffset)
             }
         })
+        glfwSetWindowSizeCallback(pointer, object : GLFWWindowSizeCallback() {
+            override fun invoke(window: Long, width: Int, height: Int) {
+                if (window == pointer) onResize(width, height)
+            }
+        })
         val vidMode = glfwGetVideoMode(glfwGetPrimaryMonitor())!!
         glfwSetWindowPos(pointer, vidMode.width() / 2 - width / 2, vidMode.height() / 2 - height / 2)
         glfwMakeContextCurrent(pointer)
@@ -81,4 +86,5 @@ open class Window(width: Int, height: Int, title: String, vsync: Boolean = true)
     open fun onMouseMove(xPox: Double, yPos: Double) {}
     open fun onMouse(key: Int, action: Int, mods: Int) {}
     open fun onScroll(xOffset: Double, yOffset: Double) {}
+    open fun onResize(width: Int, height: Int) {}
 }

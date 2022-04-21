@@ -19,11 +19,9 @@ vec3 hsv2rgb(vec3 c) {
 }
 
 void main() {
-    vec4 rColor = vec4(hsv2rgb(fColor.rgb), fColor.a);
     vec4 msd = texture(uTexture, fTexCoords);
-    vec4 rBgColor = mix(vec4(0, 0, 0, 0), vec4(0, 0, 0, 0), msd.a);//vec4(hsv2rgb(fBgColor.rgb), fBgColor.a);
     float sd = median(msd.r, msd.g, msd.b);
     float screenPxDistance = uScreenPxRange * (sd - 0.5);
     float opacity = clamp(screenPxDistance + 0.5, 0.0, 1.0);
-    color = mix(rBgColor, rColor, opacity);
+    color = mix(vec4(0), vec4(hsv2rgb(fColor.rgb), fColor.a), opacity);
 }
