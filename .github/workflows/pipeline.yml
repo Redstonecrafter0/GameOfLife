@@ -26,7 +26,7 @@ jobs:
       - name: Set version
         run: mvn versions:set -DnewVersion=${{ env.VERSION }}-${{ github.run_number }}
       - name: Publish
-        run: 'mvn -B deploy -pl opengl -Dmaven.wagon.http.pool=false'
+        run: 'mvn -B deploy -pl opengl -Dmaven.wagon.http.pool=false --no-transfer-progress'
         env:
           MAVEN_USER: 'Redstonecrafter0'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
