@@ -2,8 +2,14 @@ package net.redstonecraft.opengl.buffer
 
 import net.redstonecraft.opengl.interfaces.Pointed
 import net.redstonecraft.opengl.render.*
+import org.lwjgl.BufferUtils
+import org.lwjgl.opengl.GL11
 import org.lwjgl.opengl.GL30.*
+import java.awt.image.BufferedImage
 import java.io.Closeable
+import java.io.File
+import java.nio.ByteBuffer
+import javax.imageio.ImageIO
 
 open class Framebuffer(var width: Int, var height: Int) : Pointed, Closeable {
 
@@ -14,7 +20,7 @@ open class Framebuffer(var width: Int, var height: Int) : Pointed, Closeable {
                 if (blitShaderInternal == null) {
                     blitShaderInternal = ShaderProgram(
                         VertexShader(
-                            Framebuffer::class.java.getResourceAsStream("/assets/blit/vert.glsl")!!.readBytes().decodeToString()
+                            Framebuffer::class.java.getResourceAsStream("/assets/blit/vert_vert.glsl")!!.readBytes().decodeToString()
                         ),
                         FragmentShader(
                             Framebuffer::class.java.getResourceAsStream("/assets/blit/frag.glsl")!!.readBytes().decodeToString()
@@ -84,6 +90,31 @@ open class Framebuffer(var width: Int, var height: Int) : Pointed, Closeable {
     override fun close() {
         glDeleteFramebuffers(pointer)
         texture.close()
+    }
+
+    // convert a bytebuffer to a byte array
+    private fun ByteBuffer.toByteArray(): ByteArray {
+        rewind()
+        val data = ByteArray(remaining())
+        get(data)
+        return data
+    }
+
+    private fun ByteArray.toIntArray(): IntArray {
+        val data = IntArray(size / 4)
+        for (i in data.indices) {
+            data[i] = (this[i * 4 + 3].toInt() shl 24) or (this[i * 4 + 2].toInt() shl 16) or (this[i * 4 + 1].toInt() shl 8) or this[i * 4].toInt()
+        }
+        return data
+    }
+
+    fun save(path: String) {
+        val buffer = BufferUtils.createByteBuffer(width * height * 4)
+        glReadPixels(0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, buffer)
+        val pixels = buffer.toByteArray()
+        val image = BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB)
+        image.setRGB(0, 0, width, height, pixels.toIntArray(), 0, width)
+        ImageIO.write(image, "png", File(path))
     }
 
 }

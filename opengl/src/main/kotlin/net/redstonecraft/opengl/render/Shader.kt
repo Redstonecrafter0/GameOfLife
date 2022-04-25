@@ -81,6 +81,9 @@ class ShaderProgram(vertexShader: VertexShader, fragmentShader: FragmentShader) 
     fun uploadUUInt(name: String, value: Int) {
         glUniform1ui(uniform[name]!!, value)
     }
+    fun uploadUBoolean(name: String, value: Boolean) {
+        uploadUInt(name, if (value) 1 else 0)
+    }
 
     fun bind() {
         glUseProgram(pointer)
