@@ -12,11 +12,13 @@ import java.nio.ByteBuffer
 
 open class Texture(override val pointer: Int, val width: Int, val height: Int, val format: Int) : Pointed, Closeable {
 
-    constructor(width: Int, height: Int, format: Int) : this(glGenTextures(), width, height, format)
+    constructor(width: Int, height: Int, format: Int) : this(glGenTextures(), width, height, format) {
+        init()
+    }
 
-    constructor(img: BufferedImage, width: Int, height: Int) : this(img.toRawData(), width, height)
+    constructor(img: BufferedImage, format: Int = GL_RGBA) : this(img.toRawData(), img.width, img.height, format)
 
-    constructor(data: ByteBuffer, width: Int, height: Int, format: Int = GL_RGBA) : this(glGenTextures(), width, height, format) {
+    constructor(data: ByteBuffer, width: Int, height: Int, format: Int = GL_RGBA) : this(width, height, format) {
         update(data)
     }
 
@@ -34,6 +36,9 @@ open class Texture(override val pointer: Int, val width: Int, val height: Int, v
 
     init {
         bind()
+    }
+
+    fun init() {
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR)
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR)
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE)

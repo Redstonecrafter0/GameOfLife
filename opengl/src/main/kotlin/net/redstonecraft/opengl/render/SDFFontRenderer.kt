@@ -160,7 +160,7 @@ class SDFFont(texture: ByteArray, jsonAtlas: String) {
 
     fun getScreenPxDistance(size: Float) = (size / defs.atlas.size * defs.atlas.distanceRange).toFloat()
 
-    val texture = Texture(ImageIO.read(texture.inputStream()), defs.atlas.width, defs.atlas.height)
+    val texture = Texture(ImageIO.read(texture.inputStream()))
 
     @Serializable
     data class Data(val atlas: Atlas, val metrics: Metrics, val glyphs: List<Glyph>)

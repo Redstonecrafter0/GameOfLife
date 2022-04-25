@@ -108,15 +108,6 @@ open class Framebuffer(var width: Int, var height: Int) : Pointed, Closeable {
         return data
     }
 
-    fun save(path: String) {
-        val buffer = BufferUtils.createByteBuffer(width * height * 4)
-        glReadPixels(0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, buffer)
-        val pixels = buffer.toByteArray()
-        val image = BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB)
-        image.setRGB(0, 0, width, height, pixels.toIntArray(), 0, width)
-        ImageIO.write(image, "png", File(path))
-    }
-
 }
 
 class Framebuffer2(width: Int, height: Int) : Framebuffer(width, height) {

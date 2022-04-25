@@ -3,6 +3,7 @@ package net.redstonecraft.opengl.render
 import net.redstonecraft.opengl.interfaces.Pointed
 import org.joml.*
 import org.lwjgl.BufferUtils
+import org.lwjgl.opengl.GL20
 import org.lwjgl.opengl.GL31.*
 import java.io.Closeable
 
@@ -83,6 +84,16 @@ class ShaderProgram(vertexShader: VertexShader, fragmentShader: FragmentShader) 
     }
     fun uploadUBoolean(name: String, value: Boolean) {
         uploadUInt(name, if (value) 1 else 0)
+    }
+
+    fun uploadUFloatArray(name: String, value: FloatArray) {
+        glUniform1fv(uniform["${name}[0]"]!!, value)
+    }
+    fun uploadUIntArray(name: String, value: IntArray) {
+        glUniform1iv(uniform["${name}[0]"]!!, value)
+    }
+    fun uploadUBooleanArray(name: String, value: BooleanArray) {
+        glUniform1iv(uniform["${name}[0]"]!!, value.map { if (it) 1 else 0 }.toIntArray())
     }
 
     fun bind() {
