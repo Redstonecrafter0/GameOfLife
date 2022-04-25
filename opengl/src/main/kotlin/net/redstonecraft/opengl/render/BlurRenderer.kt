@@ -23,17 +23,7 @@ class HorizontalBlurRenderer(
         )
     ), camera, false)
 
-    var texture: Texture? = null
-        set(value) {
-            field = value
-            batch.texture = value!!
-        }
-
-    var mask: Texture? = null
-        set(value) {
-            field = value
-            batch.mask = value!!
-        }
+    var texture by batch::texture
 
     var sigma: Float = sigma
         set(value) {
@@ -42,7 +32,7 @@ class HorizontalBlurRenderer(
         }
 
     fun render(pos: Vector2f, size: Vector2f, texPos: Vector2f = Vector2f(0F, 0F), texSize: Vector2f = Vector2f(1F, 1F)) {
-        batch.texture(pos, size, texPos, texSize)
+        batch.render(pos, size, texPos, texSize)
     }
 
     fun finish() = batch.flush()
@@ -75,12 +65,6 @@ class VerticalBlurRenderer(
             batch.texture = value!!
         }
 
-    var mask: Texture? = null
-        set(value) {
-            field = value
-            batch.mask = value!!
-        }
-
     var sigma: Float = sigma
         set(value) {
             field = value
@@ -88,7 +72,7 @@ class VerticalBlurRenderer(
         }
 
     fun render(pos: Vector2f, size: Vector2f, texPos: Vector2f = Vector2f(0F, 0F), texSize: Vector2f = Vector2f(1F, 1F)) {
-        batch.texture(pos, size, texPos, texSize)
+        batch.render(pos, size, texPos, texSize)
     }
 
     fun finish() = batch.flush()
@@ -111,7 +95,6 @@ class BlurBatch(
 
     val vertices = FloatArray(size * vertSize) { 0F }
     lateinit var texture: Texture
-    lateinit var mask: Texture
 
     lateinit var weights: FloatArray
 
@@ -127,7 +110,7 @@ class BlurBatch(
         bufferEbo(0, elementBuffer, GL_STATIC_DRAW, false)
     }
 
-    fun texture(pos: Vector2f, size: Vector2f, texPos: Vector2f, texSize: Vector2f) {
+    fun render(pos: Vector2f, size: Vector2f, texPos: Vector2f, texSize: Vector2f) {
         val pos2 = pos.copy.add(size)
         val texPos2 = texPos.copy.add(texSize)
         if (count >= this.size - 3) flush()
@@ -162,7 +145,6 @@ class BlurBatch(
         shader.uploadUMat4f("uProjectionMatrix", camera.projectionMatrix)
         shader.uploadUFloat("uSize", 1F / (if (vertical) texture.height else texture.width))
         shader.uploadUTexture("uTexture", texture, 0)
-        shader.uploadUTexture("uMask", mask, 1)
         shader.uploadUFloatArray("uWeights", weights)
     }
 

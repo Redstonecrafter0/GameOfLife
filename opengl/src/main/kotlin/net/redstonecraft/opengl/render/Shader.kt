@@ -3,7 +3,6 @@ package net.redstonecraft.opengl.render
 import net.redstonecraft.opengl.interfaces.Pointed
 import org.joml.*
 import org.lwjgl.BufferUtils
-import org.lwjgl.opengl.GL20
 import org.lwjgl.opengl.GL31.*
 import java.io.Closeable
 
