@@ -5,6 +5,7 @@ import org.lwjgl.opengl.GL30.*
 abstract class Batch(
     val size: Int,
     val shader: ShaderProgram,
+    val primitive: Int,
     vararg attributes: Int
 ) {
 
@@ -55,9 +56,9 @@ abstract class Batch(
     open fun flush() {
         bufferData()
         shader.bind()
-        upload(shader)
+        shader.upload()
         glBindVertexArray(vao)
-        glDrawElements(GL_TRIANGLES, count * vertSize, GL_UNSIGNED_INT, 0)
+        glDrawElements(primitive, count * vertSize, GL_UNSIGNED_INT, 0)
         count = 0
     }
 
@@ -82,7 +83,7 @@ abstract class Batch(
     fun bufferVbo(size: Long, data: FloatArray, usage: Int, sub: Boolean = true) = buffer(GL_ARRAY_BUFFER, vbo, size, data, usage, sub)
     fun bufferEbo(size: Long, data: IntArray, usage: Int, sub: Boolean = true) = buffer(GL_ELEMENT_ARRAY_BUFFER, ebo, size, data, usage, sub)
 
-    abstract fun upload(shader: ShaderProgram)
+    abstract fun ShaderProgram.upload()
     abstract fun bufferData()
 
 }

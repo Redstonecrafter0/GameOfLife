@@ -35,6 +35,7 @@ class TextureBatch(
                 .decodeToString()
         )
     ),
+    GL_TRIANGLES,
     2, 2, 4, 1
 ) {
 
@@ -98,9 +99,9 @@ class TextureBatch(
         count++
     }
 
-    override fun upload(shader: ShaderProgram) {
-        shader.uploadUMat4f("uProjectionMatrix", camera.projectionMatrix)
-        shader.uploadUTextures("uTexture", *textures.toTypedArray())
+    override fun ShaderProgram.upload() {
+        uploadUMat4f("uProjectionMatrix", camera.projectionMatrix)
+        uploadUTextures("uTexture", *textures.toTypedArray())
     }
 
     override fun bufferData() {

@@ -38,6 +38,7 @@ class MaskBatch(
                 .decodeToString()
         )
     ),
+    GL_TRIANGLES,
     2, 2, 4, 1
 ) {
 
@@ -105,11 +106,11 @@ class MaskBatch(
         count++
     }
 
-    override fun upload(shader: ShaderProgram) {
-        shader.uploadUMat4f("uProjectionMatrix", camera.projectionMatrix)
-        shader.uploadUTextures("uTexture", *textures.toTypedArray())
-        shader.uploadUTexture("uMask", mask, textures.size)
-        shader.uploadUBoolean("uFlipMaskY", flipMaskY)
+    override fun ShaderProgram.upload() {
+        uploadUMat4f("uProjectionMatrix", camera.projectionMatrix)
+        uploadUTextures("uTexture", *textures.toTypedArray())
+        uploadUTexture("uMask", mask, textures.size)
+        uploadUBoolean("uFlipMaskY", flipMaskY)
     }
 
     override fun bufferData() {

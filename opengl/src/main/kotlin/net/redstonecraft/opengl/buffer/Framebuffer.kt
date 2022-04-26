@@ -38,7 +38,7 @@ open class Framebuffer(var width: Int, var height: Int) : Pointed, Closeable {
                 return blitBatchInternal!!
             }
 
-        class BlitBatch: Batch(1, blitShader, 2, 2) {
+        class BlitBatch: Batch(1, blitShader, GL_TRIANGLES, 2, 2) {
 
             override fun postEbo(id: Int) {
                 bufferEbo(0, intArrayOf(0, 1, 3, 1, 2, 3), GL_STATIC_DRAW, false)
@@ -50,8 +50,8 @@ open class Framebuffer(var width: Int, var height: Int) : Pointed, Closeable {
 
             lateinit var currentTexture: Texture
 
-            override fun upload(shader: ShaderProgram) {
-                shader.uploadUTexture("uTexture", currentTexture)
+            override fun ShaderProgram.upload() {
+                uploadUTexture("uTexture", currentTexture)
             }
 
             override fun bufferData() {}

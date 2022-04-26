@@ -6,6 +6,7 @@ import net.redstonecraft.opengl.camera.OrthographicCamera
 import net.redstonecraft.opengl.render.*
 import org.joml.Vector2f
 import org.lwjgl.opengl.GL30.*
+import java.awt.Color
 import java.io.File
 import javax.imageio.ImageIO
 
@@ -24,6 +25,7 @@ fun main() {
     val blurRenderer by lazy { HorizontalBlurRenderer(OrthographicCamera(0F, 1280F, 0F, 720F), sigma) }
     val blurRenderer2 by lazy { VerticalBlurRenderer(OrthographicCamera(0F, 1280F, 0F, 720F), sigma) }
     val maskRenderer by lazy { MaskRenderer(OrthographicCamera(0F, 1280F, 0F, 720F)) }
+    val bezierRenderer by lazy { BezierRenderer(OrthographicCamera(0F, 1280F, 720F, 0F)) }
     val blurMask by lazy { Texture(ImageIO.read(File("mask.png"))) }
     val lenna by lazy { Texture(ImageIO.read(File("lenna.png"))) }
     val window = object : Window(1280, 720, "Game Of Life") {
@@ -55,11 +57,14 @@ fun main() {
             maskRenderer.flipMaskY = true
             maskRenderer.render(blurPass2.texture, Vector2f(0F, 0F), Vector2f(1280F, 720F))
             maskRenderer.finish()
+            bezierRenderer.linear(Vector2f(50F, 50F), Vector2f(300F, 100F), 1F, Color.WHITE, segments = 5)
+            bezierRenderer.finish()
         }
 
         override fun postStart() {
             glEnable(GL_BLEND)
             glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
+            glDisable(GL_CULL_FACE)
         }
 
         override fun onResize(width: Int, height: Int) {

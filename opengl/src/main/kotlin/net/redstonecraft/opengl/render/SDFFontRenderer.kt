@@ -56,6 +56,7 @@ class SDFFontBatch(
                 .decodeToString()
         )
     ),
+    GL_TRIANGLES,
     2, 4, 2
 ) {
 
@@ -137,10 +138,10 @@ class SDFFontBatch(
         count++
     }
 
-    override fun upload(shader: ShaderProgram) {
-        shader.uploadUMat4f("uProjectionMatrix", camera.projectionMatrix)
-        shader.uploadUTexture("uTexture", font.texture)
-        shader.uploadUFloat("uScreenPxRange", font.getScreenPxDistance(fontSizePx))
+    override fun ShaderProgram.upload() {
+        uploadUMat4f("uProjectionMatrix", camera.projectionMatrix)
+        uploadUTexture("uTexture", font.texture)
+        uploadUFloat("uScreenPxRange", font.getScreenPxDistance(fontSizePx))
     }
 
     override fun bufferData() {

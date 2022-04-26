@@ -3,10 +3,10 @@ package net.redstonecraft.opengl.render
 import net.redstonecraft.opengl.interfaces.Pointed
 import org.joml.*
 import org.lwjgl.BufferUtils
-import org.lwjgl.opengl.GL31.*
+import org.lwjgl.opengl.GL32.*
 import java.io.Closeable
 
-class ShaderProgram(vertexShader: VertexShader, fragmentShader: FragmentShader) : Pointed, Closeable {
+class ShaderProgram(vertexShader: VertexShader, fragmentShader: FragmentShader, geometryShader: GeometryShader? = null) : Pointed, Closeable {
 
     override val pointer = glCreateProgram()
     val uniform = mutableMapOf<String, Int>()
@@ -15,6 +15,9 @@ class ShaderProgram(vertexShader: VertexShader, fragmentShader: FragmentShader) 
         try {
             glAttachShader(pointer, vertexShader.pointer)
             glAttachShader(pointer, fragmentShader.pointer)
+            if (geometryShader != null) {
+                glAttachShader(pointer, geometryShader.pointer)
+            }
             glLinkProgram(pointer)
             val status = glGetProgrami(pointer, GL_LINK_STATUS)
             val len = glGetProgrami(pointer, GL_INFO_LOG_LENGTH)
@@ -132,3 +135,4 @@ abstract class Shader(source: String, private val type: Int) : Pointed, Closeabl
 
 class VertexShader(source: String) : Shader(source, GL_VERTEX_SHADER)
 class FragmentShader(source: String) : Shader(source, GL_FRAGMENT_SHADER)
+class GeometryShader(source: String) : Shader(source, GL_GEOMETRY_SHADER)

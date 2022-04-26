@@ -90,6 +90,7 @@ class BlurBatch(
 ) : Batch(
     256,
     shader,
+    GL_TRIANGLES,
     2, 2
 ) {
 
@@ -141,11 +142,11 @@ class BlurBatch(
         count++
     }
 
-    override fun upload(shader: ShaderProgram) {
-        shader.uploadUMat4f("uProjectionMatrix", camera.projectionMatrix)
-        shader.uploadUFloat("uSize", 1F / (if (vertical) texture.height else texture.width))
-        shader.uploadUTexture("uTexture", texture, 0)
-        shader.uploadUFloatArray("uWeights", weights)
+    override fun ShaderProgram.upload() {
+        uploadUMat4f("uProjectionMatrix", camera.projectionMatrix)
+        uploadUFloat("uSize", 1F / (if (vertical) texture.height else texture.width))
+        uploadUTexture("uTexture", texture, 0)
+        uploadUFloatArray("uWeights", weights)
     }
 
     override fun bufferData() {
