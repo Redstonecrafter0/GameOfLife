@@ -78,7 +78,7 @@ private fun BufferedImage.toRawData(): ByteBuffer {
 private fun String.toSvg(width: Int, height: Int): ByteBuffer {
     val rast = nsvgCreateRasterizer()
     val svg = nsvgParse(this, "px", 96F)!!
-    val image = ByteBuffer.allocate(width * height * 4)
+    val image = BufferUtils.createByteBuffer(width * height * 4)
     nsvgRasterize(rast, svg, 0F, 0F, 1F, image, width, height, width * 4)
     nsvgDeleteRasterizer(rast)
     return image

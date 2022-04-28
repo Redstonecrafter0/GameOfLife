@@ -1,13 +1,15 @@
 package net.redstonecraft.opengl.render
 
+import org.lwjgl.opengl.GL15
 import org.lwjgl.opengl.GL30.*
+import java.io.Closeable
 
 abstract class Batch(
     val size: Int,
     val shader: ShaderProgram,
     val primitive: Int,
     vararg attributes: Int
-) {
+) : Closeable {
 
     val vertSize = attributes.sum()
 
@@ -85,5 +87,11 @@ abstract class Batch(
 
     abstract fun ShaderProgram.upload()
     abstract fun bufferData()
+
+    final override fun close() {
+        glDeleteVertexArrays(vao)
+        glDeleteBuffers(vbo)
+        glDeleteBuffers(ebo)
+    }
 
 }

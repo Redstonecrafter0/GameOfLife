@@ -22,7 +22,7 @@ class ShaderProgram(vertexShader: VertexShader, fragmentShader: FragmentShader, 
             val status = glGetProgrami(pointer, GL_LINK_STATUS)
             val len = glGetProgrami(pointer, GL_INFO_LOG_LENGTH)
             val log = glGetProgramInfoLog(pointer, len)
-            println(log)
+            if (log != "") println(log)
             if (status == GL_FALSE) throw RuntimeException("Could not link shader")
             val uniformLen = glGetProgrami(pointer, GL_ACTIVE_UNIFORMS)
             val strLen = glGetProgrami(pointer, GL_ACTIVE_UNIFORM_MAX_LENGTH)
@@ -119,7 +119,7 @@ abstract class Shader(source: String, private val type: Int) : Pointed, Closeabl
             val status = glGetShaderi(pointer, GL_COMPILE_STATUS)
             val len = glGetShaderi(pointer, GL_INFO_LOG_LENGTH)
             val log = glGetShaderInfoLog(pointer, len)
-            println(log)
+            if (log != "") println(log)
             if (status == GL_FALSE) throw RuntimeException("Could not compile ${if (type == GL_VERTEX_SHADER) "vertex" else "fragment"} shader")
         } catch (e: RuntimeException) {
             close()

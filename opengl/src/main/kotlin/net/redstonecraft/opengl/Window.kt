@@ -5,8 +5,9 @@ import org.lwjgl.glfw.*
 import org.lwjgl.glfw.GLFW.*
 import org.lwjgl.opengl.GL
 import org.lwjgl.system.MemoryUtil.NULL
+import java.io.Closeable
 
-open class Window(width: Int, height: Int, title: String, vsync: Boolean = true) : LPointed {
+open class Window(width: Int, height: Int, title: String, vsync: Boolean = true) : LPointed, Closeable {
 
     companion object {
         init {
@@ -71,7 +72,7 @@ open class Window(width: Int, height: Int, title: String, vsync: Boolean = true)
             glfwSwapBuffers(pointer)
             glfwPollEvents()
         }
-        glfwDestroyWindow(pointer)
+        close()
     }
 
     /**
@@ -87,4 +88,9 @@ open class Window(width: Int, height: Int, title: String, vsync: Boolean = true)
     open fun onMouse(key: Int, action: Int, mods: Int) {}
     open fun onScroll(xOffset: Double, yOffset: Double) {}
     open fun onResize(width: Int, height: Int) {}
+
+    final override fun close() {
+        glfwDestroyWindow(pointer)
+    }
+
 }

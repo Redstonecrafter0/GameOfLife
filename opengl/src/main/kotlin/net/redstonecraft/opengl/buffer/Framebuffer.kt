@@ -5,6 +5,7 @@ import net.redstonecraft.opengl.render.*
 import org.lwjgl.BufferUtils
 import org.lwjgl.opengl.GL11
 import org.lwjgl.opengl.GL30.*
+import java.awt.Color
 import java.awt.image.BufferedImage
 import java.io.Closeable
 import java.io.File
@@ -55,6 +56,15 @@ open class Framebuffer(var width: Int, var height: Int) : Pointed, Closeable {
             }
 
             override fun bufferData() {}
+        }
+
+        fun unbind() {
+            glBindFramebuffer(GL_FRAMEBUFFER, 0)
+        }
+
+        fun clear(color: Color) {
+            glClearColor(color.red / 255F, color.green / 255F, color.blue / 255F, color.alpha / 255F)
+            glClear(GL_COLOR_BUFFER_BIT)
         }
     }
 

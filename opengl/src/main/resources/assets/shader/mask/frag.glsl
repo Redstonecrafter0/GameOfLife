@@ -21,7 +21,9 @@ void main() {
     if (uFlipMaskY) {
         texCoords = vec2(fTexCoords.x, 1.0 - fTexCoords.y);
     }
-    if (texture(uMask, texCoords).a != 0) {
+    float mask = texture(uMask, texCoords).a;
+    if (mask != 0) {
         color = texture(uTexture[int(fTexture)], fTexCoords) * vec4(hsv2rgb(fColor.rgb), fColor.a);
+        color.a *= mask;
     }
 }
