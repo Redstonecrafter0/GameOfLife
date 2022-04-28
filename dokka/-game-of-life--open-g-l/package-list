@@ -9,6 +9,8 @@ $dokka.location:net.redstonecraft.opengl.buffer/Framebuffer.Companion.BlitBatch/
 $dokka.location:net.redstonecraft.opengl.buffer/Framebuffer.Companion.BlitBatch/postVbo/#kotlin.Int/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.buffer/-framebuffer/-companion/-blit-batch/post-vbo.html
 $dokka.location:net.redstonecraft.opengl.buffer/Framebuffer.Companion.BlitBatch/upload/net.redstonecraft.opengl.render.ShaderProgram#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.buffer/-framebuffer/-companion/-blit-batch/upload.html
 $dokka.location:net.redstonecraft.opengl.buffer/Framebuffer.Companion///PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.buffer/-framebuffer/-companion/index.html
+$dokka.location:net.redstonecraft.opengl.buffer/Framebuffer.Companion/clear/#java.awt.Color/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.buffer/-framebuffer/-companion/clear.html
+$dokka.location:net.redstonecraft.opengl.buffer/Framebuffer.Companion/unbind/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.buffer/-framebuffer/-companion/unbind.html
 $dokka.location:net.redstonecraft.opengl.buffer/Framebuffer///PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.buffer/-framebuffer/index.html
 $dokka.location:net.redstonecraft.opengl.buffer/Framebuffer/Framebuffer/#kotlin.Int#kotlin.Int/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.buffer/-framebuffer/-framebuffer.html
 $dokka.location:net.redstonecraft.opengl.buffer/Framebuffer/bind/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.buffer/-framebuffer/bind.html
@@ -46,6 +48,7 @@ $dokka.location:net.redstonecraft.opengl.render/Batch/buffer/#kotlin.Int#kotlin.
 $dokka.location:net.redstonecraft.opengl.render/Batch/bufferData/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-batch/buffer-data.html
 $dokka.location:net.redstonecraft.opengl.render/Batch/bufferEbo/#kotlin.Long#kotlin.IntArray#kotlin.Int#kotlin.Boolean/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-batch/buffer-ebo.html
 $dokka.location:net.redstonecraft.opengl.render/Batch/bufferVbo/#kotlin.Long#kotlin.FloatArray#kotlin.Int#kotlin.Boolean/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-batch/buffer-vbo.html
+$dokka.location:net.redstonecraft.opengl.render/Batch/close/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-batch/close.html
 $dokka.location:net.redstonecraft.opengl.render/Batch/count/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-batch/count.html
 $dokka.location:net.redstonecraft.opengl.render/Batch/ebo/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-batch/ebo.html
 $dokka.location:net.redstonecraft.opengl.render/Batch/flush/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-batch/flush.html
@@ -59,21 +62,6 @@ $dokka.location:net.redstonecraft.opengl.render/Batch/upload/net.redstonecraft.o
 $dokka.location:net.redstonecraft.opengl.render/Batch/vao/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-batch/vao.html
 $dokka.location:net.redstonecraft.opengl.render/Batch/vbo/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-batch/vbo.html
 $dokka.location:net.redstonecraft.opengl.render/Batch/vertSize/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-batch/vert-size.html
-$dokka.location:net.redstonecraft.opengl.render/BezierBatch///PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-bezier-batch/index.html
-$dokka.location:net.redstonecraft.opengl.render/BezierBatch/BezierBatch/#net.redstonecraft.opengl.camera.Camera/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-bezier-batch/-bezier-batch.html
-$dokka.location:net.redstonecraft.opengl.render/BezierBatch/bufferData/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-bezier-batch/buffer-data.html
-$dokka.location:net.redstonecraft.opengl.render/BezierBatch/camera/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-bezier-batch/camera.html
-$dokka.location:net.redstonecraft.opengl.render/BezierBatch/postEbo/#kotlin.Int/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-bezier-batch/post-ebo.html
-$dokka.location:net.redstonecraft.opengl.render/BezierBatch/render/#org.joml.Vector2f#org.joml.Vector2f#org.joml.Vector2f#org.joml.Vector2f#kotlin.Float#java.awt.Color#java.awt.Color#kotlin.Int/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-bezier-batch/render.html
-$dokka.location:net.redstonecraft.opengl.render/BezierBatch/upload/net.redstonecraft.opengl.render.ShaderProgram#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-bezier-batch/upload.html
-$dokka.location:net.redstonecraft.opengl.render/BezierBatch/vertices/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-bezier-batch/vertices.html
-$dokka.location:net.redstonecraft.opengl.render/BezierRenderer///PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-bezier-renderer/index.html
-$dokka.location:net.redstonecraft.opengl.render/BezierRenderer/BezierRenderer/#net.redstonecraft.opengl.camera.Camera/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-bezier-renderer/-bezier-renderer.html
-$dokka.location:net.redstonecraft.opengl.render/BezierRenderer/batch/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-bezier-renderer/batch.html
-$dokka.location:net.redstonecraft.opengl.render/BezierRenderer/cubic/#org.joml.Vector2f#org.joml.Vector2f#org.joml.Vector2f#org.joml.Vector2f#kotlin.Float#java.awt.Color#java.awt.Color#kotlin.Int/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-bezier-renderer/cubic.html
-$dokka.location:net.redstonecraft.opengl.render/BezierRenderer/finish/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-bezier-renderer/finish.html
-$dokka.location:net.redstonecraft.opengl.render/BezierRenderer/linear/#org.joml.Vector2f#org.joml.Vector2f#kotlin.Float#java.awt.Color#java.awt.Color#kotlin.Int/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-bezier-renderer/linear.html
-$dokka.location:net.redstonecraft.opengl.render/BezierRenderer/quadratic/#org.joml.Vector2f#org.joml.Vector2f#org.joml.Vector2f#kotlin.Float#java.awt.Color#java.awt.Color#kotlin.Int/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-bezier-renderer/quadratic.html
 $dokka.location:net.redstonecraft.opengl.render/BlurBatch.Companion///PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-blur-batch/-companion/index.html
 $dokka.location:net.redstonecraft.opengl.render/BlurBatch///PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-blur-batch/index.html
 $dokka.location:net.redstonecraft.opengl.render/BlurBatch/BlurBatch/#net.redstonecraft.opengl.render.ShaderProgram#net.redstonecraft.opengl.camera.Camera#kotlin.Boolean/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-blur-batch/-blur-batch.html
@@ -247,6 +235,7 @@ $dokka.location:net.redstonecraft.opengl//copy/org.joml.Vector2f#/PointingToDecl
 $dokka.location:net.redstonecraft.opengl/Window.Companion///PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl/-window/-companion/index.html
 $dokka.location:net.redstonecraft.opengl/Window///PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl/-window/index.html
 $dokka.location:net.redstonecraft.opengl/Window/Window/#kotlin.Int#kotlin.Int#kotlin.String#kotlin.Boolean/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl/-window/-window.html
+$dokka.location:net.redstonecraft.opengl/Window/close/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl/-window/close.html
 $dokka.location:net.redstonecraft.opengl/Window/loop/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl/-window/loop.html
 $dokka.location:net.redstonecraft.opengl/Window/onChar/#kotlin.Int/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl/-window/on-char.html
 $dokka.location:net.redstonecraft.opengl/Window/onKey/#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl/-window/on-key.html
