@@ -14,6 +14,7 @@ open class Window(width: Int, height: Int, title: String, vsync: Boolean = true)
             if (!glfwInit()) throw RuntimeException("Error initializing GLFW")
             glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3)
             glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3)
+            glfwWindowHint(GLFW_SAMPLES, 4)
         }
     }
 
