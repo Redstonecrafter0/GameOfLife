@@ -90,6 +90,7 @@ $dokka.location:net.redstonecraft.opengl.render/GeometryShader/GeometryShader/#k
 $dokka.location:net.redstonecraft.opengl.render/HorizontalBlurRenderer///PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-horizontal-blur-renderer/index.html
 $dokka.location:net.redstonecraft.opengl.render/HorizontalBlurRenderer/HorizontalBlurRenderer/#net.redstonecraft.opengl.camera.Camera#kotlin.Float/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-horizontal-blur-renderer/-horizontal-blur-renderer.html
 $dokka.location:net.redstonecraft.opengl.render/HorizontalBlurRenderer/batch/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-horizontal-blur-renderer/batch.html
+$dokka.location:net.redstonecraft.opengl.render/HorizontalBlurRenderer/camera/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-horizontal-blur-renderer/camera.html
 $dokka.location:net.redstonecraft.opengl.render/HorizontalBlurRenderer/finish/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-horizontal-blur-renderer/finish.html
 $dokka.location:net.redstonecraft.opengl.render/HorizontalBlurRenderer/render/#org.joml.Vector2f#org.joml.Vector2f#org.joml.Vector2f#org.joml.Vector2f/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-horizontal-blur-renderer/render.html
 $dokka.location:net.redstonecraft.opengl.render/HorizontalBlurRenderer/sigma/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-horizontal-blur-renderer/sigma.html
@@ -109,6 +110,7 @@ $dokka.location:net.redstonecraft.opengl.render/MaskBatch/vertices/#/PointingToD
 $dokka.location:net.redstonecraft.opengl.render/MaskRenderer///PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-mask-renderer/index.html
 $dokka.location:net.redstonecraft.opengl.render/MaskRenderer/MaskRenderer/#net.redstonecraft.opengl.camera.Camera/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-mask-renderer/-mask-renderer.html
 $dokka.location:net.redstonecraft.opengl.render/MaskRenderer/batch/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-mask-renderer/batch.html
+$dokka.location:net.redstonecraft.opengl.render/MaskRenderer/camera/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-mask-renderer/camera.html
 $dokka.location:net.redstonecraft.opengl.render/MaskRenderer/finish/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-mask-renderer/finish.html
 $dokka.location:net.redstonecraft.opengl.render/MaskRenderer/flipMaskY/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-mask-renderer/flip-mask-y.html
 $dokka.location:net.redstonecraft.opengl.render/MaskRenderer/mask/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-mask-renderer/mask.html
@@ -157,6 +159,7 @@ $dokka.location:net.redstonecraft.opengl.render/NanoVGRenderer/debug/#/PointingT
 $dokka.location:net.redstonecraft.opengl.render/NanoVGRenderer/height/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-nano-v-g-renderer/height.html
 $dokka.location:net.redstonecraft.opengl.render/NanoVGRenderer/pointer/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-nano-v-g-renderer/pointer.html
 $dokka.location:net.redstonecraft.opengl.render/NanoVGRenderer/render/#kotlin.Function1[net.redstonecraft.opengl.render.NanoVGRenderer.Functions,kotlin.Unit]/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-nano-v-g-renderer/render.html
+$dokka.location:net.redstonecraft.opengl.render/NanoVGRenderer/resize/#kotlin.Int#kotlin.Int/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-nano-v-g-renderer/resize.html
 $dokka.location:net.redstonecraft.opengl.render/NanoVGRenderer/width/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-nano-v-g-renderer/width.html
 $dokka.location:net.redstonecraft.opengl.render/SDFFont.Atlas///PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-s-d-f-font/-atlas/index.html
 $dokka.location:net.redstonecraft.opengl.render/SDFFont.Atlas/Atlas/#kotlin.String#kotlin.Double#kotlin.Double#kotlin.Int#kotlin.Int#kotlin.String/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-s-d-f-font/-atlas/-atlas.html
@@ -216,6 +219,7 @@ $dokka.location:net.redstonecraft.opengl.render/SDFFontBatch/vertices/#/Pointing
 $dokka.location:net.redstonecraft.opengl.render/SDFFontRenderer///PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-s-d-f-font-renderer/index.html
 $dokka.location:net.redstonecraft.opengl.render/SDFFontRenderer/SDFFontRenderer/#net.redstonecraft.opengl.render.SDFFont#kotlin.Float#net.redstonecraft.opengl.camera.Camera#kotlin.Int/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-s-d-f-font-renderer/-s-d-f-font-renderer.html
 $dokka.location:net.redstonecraft.opengl.render/SDFFontRenderer/batch/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-s-d-f-font-renderer/batch.html
+$dokka.location:net.redstonecraft.opengl.render/SDFFontRenderer/camera/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-s-d-f-font-renderer/camera.html
 $dokka.location:net.redstonecraft.opengl.render/SDFFontRenderer/finish/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-s-d-f-font-renderer/finish.html
 $dokka.location:net.redstonecraft.opengl.render/SDFFontRenderer/render/#kotlin.String#kotlin.Float#kotlin.Float#java.awt.Color/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-s-d-f-font-renderer/render.html
 $dokka.location:net.redstonecraft.opengl.render/SVGTexture///PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-s-v-g-texture/index.html
@@ -273,6 +277,7 @@ $dokka.location:net.redstonecraft.opengl.render/TextureBatch/vertices/#/Pointing
 $dokka.location:net.redstonecraft.opengl.render/TextureRenderer///PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-texture-renderer/index.html
 $dokka.location:net.redstonecraft.opengl.render/TextureRenderer/TextureRenderer/#net.redstonecraft.opengl.camera.Camera/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-texture-renderer/-texture-renderer.html
 $dokka.location:net.redstonecraft.opengl.render/TextureRenderer/batch/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-texture-renderer/batch.html
+$dokka.location:net.redstonecraft.opengl.render/TextureRenderer/camera/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-texture-renderer/camera.html
 $dokka.location:net.redstonecraft.opengl.render/TextureRenderer/finish/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-texture-renderer/finish.html
 $dokka.location:net.redstonecraft.opengl.render/TextureRenderer/render/#net.redstonecraft.opengl.render.Texture#org.joml.Vector2f#org.joml.Vector2f#java.awt.Color#org.joml.Vector2f#org.joml.Vector2f/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-texture-renderer/render.html
 $dokka.location:net.redstonecraft.opengl.render/VertexShader///PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-vertex-shader/index.html
@@ -280,6 +285,7 @@ $dokka.location:net.redstonecraft.opengl.render/VertexShader/VertexShader/#kotli
 $dokka.location:net.redstonecraft.opengl.render/VerticalBlurRenderer///PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-vertical-blur-renderer/index.html
 $dokka.location:net.redstonecraft.opengl.render/VerticalBlurRenderer/VerticalBlurRenderer/#net.redstonecraft.opengl.camera.Camera#kotlin.Float/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-vertical-blur-renderer/-vertical-blur-renderer.html
 $dokka.location:net.redstonecraft.opengl.render/VerticalBlurRenderer/batch/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-vertical-blur-renderer/batch.html
+$dokka.location:net.redstonecraft.opengl.render/VerticalBlurRenderer/camera/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-vertical-blur-renderer/camera.html
 $dokka.location:net.redstonecraft.opengl.render/VerticalBlurRenderer/finish/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-vertical-blur-renderer/finish.html
 $dokka.location:net.redstonecraft.opengl.render/VerticalBlurRenderer/render/#org.joml.Vector2f#org.joml.Vector2f#org.joml.Vector2f#org.joml.Vector2f/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-vertical-blur-renderer/render.html
 $dokka.location:net.redstonecraft.opengl.render/VerticalBlurRenderer/sigma/#/PointingToDeclaration/-game-of-life--open-g-l/net.redstonecraft.opengl.render/-vertical-blur-renderer/sigma.html
