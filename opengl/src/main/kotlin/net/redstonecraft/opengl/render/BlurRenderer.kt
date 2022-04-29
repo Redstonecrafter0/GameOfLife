@@ -25,6 +25,8 @@ class HorizontalBlurRenderer(
 
     var texture by batch::texture
 
+    var camera by batch::camera
+
     var sigma: Float = sigma
         set(value) {
             field = value
@@ -59,11 +61,9 @@ class VerticalBlurRenderer(
         )
     ), camera, true)
 
-    var texture: Texture? = null
-        set(value) {
-            field = value
-            batch.texture = value!!
-        }
+    var texture by batch::texture
+
+    var camera by batch::camera
 
     var sigma: Float = sigma
         set(value) {
@@ -85,7 +85,7 @@ class VerticalBlurRenderer(
 
 class BlurBatch(
     shader: ShaderProgram,
-    val camera: Camera,
+    var camera: Camera,
     val vertical: Boolean
 ) : Batch(
     256,

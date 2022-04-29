@@ -20,6 +20,8 @@ class SDFFontRenderer(
 
     val batch = SDFFontBatch(font, fontSizePx, camera, batchSize)
 
+    var camera by batch::camera
+
     fun render(text: String, x: Float, y: Float, color: Color = Color.WHITE) {
         var yOff = .0
         text.split("\n").map {
@@ -43,7 +45,7 @@ class SDFFontRenderer(
 class SDFFontBatch(
     val font: SDFFont,
     val fontSizePx: Float,
-    val camera: Camera,
+    var camera: Camera,
     size: Int = 5000
 ) : Batch(
     size,

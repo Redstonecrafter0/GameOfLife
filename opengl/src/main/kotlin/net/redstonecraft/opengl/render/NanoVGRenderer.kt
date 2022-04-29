@@ -12,6 +12,11 @@ class NanoVGRenderer(var width: Int = 1920, var height: Int = 1080, val debug: B
 
     private val functions = Functions()
 
+    fun resize(width: Int, height: Int) {
+        this.width = width
+        this.height = height
+    }
+
     fun render(block: NanoVGRenderer.Functions.() -> Unit) {
         nvgBeginFrame(pointer, width.toFloat(), height.toFloat(), 1F)
         try {

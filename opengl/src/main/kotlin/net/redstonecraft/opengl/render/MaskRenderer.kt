@@ -15,6 +15,7 @@ class MaskRenderer(
 
     var mask by batch::mask
     var flipMaskY by batch::flipMaskY
+    var camera by batch::camera
 
     fun render(texture: Texture, pos: Vector2f, size: Vector2f = Vector2f(texture.width.toFloat(), texture.height.toFloat()), color: Color = Color.WHITE, texPos: Vector2f = Vector2f(0F, 0F), texSize: Vector2f = Vector2f(1F, 1F)) {
         batch.texture(texture, pos, size, color, texPos, texSize)
@@ -25,7 +26,7 @@ class MaskRenderer(
 }
 
 class MaskBatch(
-    val camera: Camera
+    var camera: Camera
 ) : Batch(
     15,
     ShaderProgram(
