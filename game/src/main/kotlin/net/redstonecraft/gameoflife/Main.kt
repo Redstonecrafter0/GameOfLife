@@ -26,7 +26,9 @@ fun main() {
     val blurRenderer by lazy { HorizontalBlurRenderer(OrthographicCamera(0F, 1280F, 0F, 720F), sigma) }
     val blurRenderer2 by lazy { VerticalBlurRenderer(OrthographicCamera(0F, 1280F, 0F, 720F), sigma) }
     val maskRenderer by lazy { MaskRenderer(OrthographicCamera(0F, 1280F, 0F, 720F)) }
-    val nvgRenderer by lazy { NanoVGRenderer(1280, 720, true) }
+    val nvgRenderer by lazy { NanoVGRenderer(1280, 720, true).apply {
+        loadFont("Jetbrains Mono", File("JetBrainsMonoNL-Regular.ttf").readBytes())
+    } }
     val blurMask by lazy { Texture(ImageIO.read(File("mask.png"))) }
     val lenna by lazy { Texture(ImageIO.read(File("lenna.png"))) }
     val svg by lazy { SVGTexture(File("cc.svg"), 100, 100) }
@@ -51,6 +53,9 @@ fun main() {
                     lineTo(150F, 130F)
                     cubicBezierTo(200F, 160F, 200F, 200F, 150F, 190F)
                     arcTo(150F, 200F, 200F, 300F, 50F)
+                }
+                font("Jetbrains Mono", linearGradient(10F, 80F, 60F, 80F, rgb(0F, 1F, 0F), rgb(1F, 1F, 0F))) {
+                    text(10F, 80F, "NanoVG Test Text")
                 }
             }
             glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
