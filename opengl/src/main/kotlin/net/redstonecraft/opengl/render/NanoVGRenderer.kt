@@ -55,6 +55,7 @@ class NanoVGRenderer(var width: Int = 1920, var height: Int = 1080, val debug: B
         fun linearGradient(cx1: Float, cy1: Float, cx2: Float, cy2: Float, color1: NVGColor, color2: NVGColor) = nvgLinearGradient(pointer, cx1, cy1, cx2, cy2, color1, color2, NVGPaint.create())
         fun boxGradient(x: Float, y: Float, w: Float, h: Float, r: Float, f: Float, color1: NVGColor, color2: NVGColor) = nvgBoxGradient(pointer, x, y, w, h, r, f, color1, color2, NVGPaint.create())
         fun radialGradient(x: Float, y: Float, ir: Float, or: Float, color1: NVGColor, color2: NVGColor) = nvgRadialGradient(pointer, x, y, ir, or, color1, color2, NVGPaint.create())
+        fun scissor(x: Float, y: Float, w: Float, h: Float) = nvgScissor(pointer, x, y, w, h)
 
         fun fill(color: NVGColor, block: NanoVGRenderer.Functions.Path.() -> Unit) {
             nvgBeginPath(pointer)
@@ -62,6 +63,7 @@ class NanoVGRenderer(var width: Int = 1920, var height: Int = 1080, val debug: B
             nvgFillColor(pointer, color)
             nvgFill(pointer)
             nvgClosePath(pointer)
+            nvgResetScissor(pointer)
         }
 
         fun fill(paint: NVGPaint, block: NanoVGRenderer.Functions.Path.() -> Unit) {
@@ -70,6 +72,7 @@ class NanoVGRenderer(var width: Int = 1920, var height: Int = 1080, val debug: B
             nvgFillPaint(pointer, paint)
             nvgFill(pointer)
             nvgClosePath(pointer)
+            nvgResetScissor(pointer)
         }
 
         fun stroke(color: NVGColor, width: Float = 1F, block: NanoVGRenderer.Functions.Path.() -> Unit) {
@@ -79,6 +82,7 @@ class NanoVGRenderer(var width: Int = 1920, var height: Int = 1080, val debug: B
             nvgStrokeColor(pointer, color)
             nvgStroke(pointer)
             nvgClosePath(pointer)
+            nvgResetScissor(pointer)
         }
 
         fun stroke(paint: NVGPaint, width: Float = 1F, block: NanoVGRenderer.Functions.Path.() -> Unit) {
@@ -88,6 +92,7 @@ class NanoVGRenderer(var width: Int = 1920, var height: Int = 1080, val debug: B
             nvgStrokePaint(pointer, paint)
             nvgStroke(pointer)
             nvgClosePath(pointer)
+            nvgResetScissor(pointer)
         }
 
         inner class Path {
@@ -97,9 +102,7 @@ class NanoVGRenderer(var width: Int = 1920, var height: Int = 1080, val debug: B
             fun globalAlpha(a: Float) = nvgGlobalAlpha(pointer, a)
             fun globalAlpha(a: Int) = globalAlpha(a / 255F)
 
-            fun scissor(x: Float, y: Float, w: Float, h: Float) = nvgScissor(pointer, x, y, w, h)
             fun interSectScissor(x: Float, y: Float, w: Float, h: Float) = nvgIntersectScissor(pointer, x, y, w, h)
-            fun resetScissor() = nvgReset(pointer)
 
             fun arc(cx: Float, cy: Float, r: Float, a0: Float, a1: Float, direction: Int) = nvgArc(pointer, cx, cy, r, a0, a1, direction)
             fun rect(x: Float, y: Float, w: Float, h: Float) = nvgRect(pointer, x, y, w, h)
@@ -124,6 +127,7 @@ class NanoVGRenderer(var width: Int = 1920, var height: Int = 1080, val debug: B
             nvgStrokeColor(pointer, color)
             this.font.block()
             nvgClosePath(pointer)
+            nvgResetScissor(pointer)
         }
 
         fun font(font: String, paint: NVGPaint, size: Float = 12F, align: Int = NVG_ALIGN_LEFT, block: NanoVGRenderer.Functions.TextFont.() -> Unit) {
@@ -135,6 +139,7 @@ class NanoVGRenderer(var width: Int = 1920, var height: Int = 1080, val debug: B
             nvgStrokePaint(pointer, paint)
             this.font.block()
             nvgClosePath(pointer)
+            nvgResetScissor(pointer)
         }
 
         inner class TextFont {
