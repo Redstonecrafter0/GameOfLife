@@ -6,6 +6,7 @@ import org.lwjgl.nanovg.NVGColor
 import org.lwjgl.nanovg.NVGPaint
 import org.lwjgl.nanovg.NanoVG.*
 import org.lwjgl.nanovg.NanoVGGL3.*
+import java.awt.Color
 
 class NanoVGRenderer(var width: Int = 1920, var height: Int = 1080, val debug: Boolean = false) : LPointed {
 
@@ -48,6 +49,8 @@ class NanoVGRenderer(var width: Int = 1920, var height: Int = 1080, val debug: B
         fun hsl(h: Float, s: Float, l: Float) = nvgHSL(h, s, l, NVGColor.create())
         fun hsla(h: Int, s: Int, l: Int, a: Int) = hsla(h / 255F, s / 255F, l / 255F, a / 255F)
         fun hsla(h: Float, s: Float, l: Float, a: Float) = nvgHSLA(h, s, l, (a * 255).toInt().toByte(), NVGColor.create())
+
+        fun Color.toNvg() = rgba(red, green, blue, alpha)
 
         fun linearGradient(cx1: Float, cy1: Float, cx2: Float, cy2: Float, color1: NVGColor, color2: NVGColor) = nvgLinearGradient(pointer, cx1, cy1, cx2, cy2, color1, color2, NVGPaint.create())
         fun boxGradient(x: Float, y: Float, w: Float, h: Float, r: Float, f: Float, color1: NVGColor, color2: NVGColor) = nvgBoxGradient(pointer, x, y, w, h, r, f, color1, color2, NVGPaint.create())
