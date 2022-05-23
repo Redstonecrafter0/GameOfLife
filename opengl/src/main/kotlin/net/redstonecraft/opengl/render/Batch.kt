@@ -1,6 +1,5 @@
 package net.redstonecraft.opengl.render
 
-import org.lwjgl.opengl.GL15
 import org.lwjgl.opengl.GL30.*
 import java.io.Closeable
 
@@ -56,10 +55,10 @@ abstract class Batch(
     }
 
     open fun flush() {
+        glBindVertexArray(vao)
         bufferData()
         shader.bind()
         shader.upload()
-        glBindVertexArray(vao)
         glDrawElements(primitive, count * vertSize, GL_UNSIGNED_INT, 0)
         count = 0
     }
